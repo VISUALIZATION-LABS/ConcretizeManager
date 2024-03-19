@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="PvizManager.View.UserControls.Header"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PvizManager.View.UserControls"
+             mc:Ignorable="d" 
+             Background="#0C0C0C"
+             d:DesignHeight="60" d:DesignWidth="800">
+    <Grid>
+        <TextBlock Foreground="White"
+                   Padding="20"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   FontSize="13"
+                   Text="POCKETVIZ 2 MANAGER"/>
+
+        <StackPanel Orientation="Horizontal" 
+                    VerticalAlignment="Center"
+                    Margin="20 0">
+            <TextBlock Foreground="White" Text="INSTALAÇÃO" FontSize="16" Padding="4"/>
+            <TextBlock Foreground="White" Text="PACOTES" FontSize="16" Padding="4"/>
+            <TextBlock Foreground="White" Text="CONTAS" FontSize="16" Padding="4"/>
+            <TextBlock Foreground="White" Text="PACOTES" FontSize="16" Padding="4"/>
+            <TextBlock Foreground="White" Text="SAIR" FontSize="16" Padding="4"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>
