@@ -1,0 +1,507 @@
+[gd_scene load_steps=13 format=3 uid="uid://ouyh71iw5w5o"]
+
+[ext_resource type="Script" path="res://WindowManager.gd" id="1_3eng3"]
+[ext_resource type="FontFile" uid="uid://7w3wryjj81mc" path="res://Art/Fonts/Inter/Inter-SemiBold.ttf" id="1_3rg3l"]
+[ext_resource type="FontFile" uid="uid://dhiv3473q5bwi" path="res://Art/Fonts/Inter/Inter-Bold.ttf" id="2_j5lki"]
+[ext_resource type="FontFile" uid="uid://cx66tncyfdt0g" path="res://Art/Fonts/Inter/Inter-Regular.ttf" id="3_3r5xi"]
+[ext_resource type="FontFile" uid="uid://cjp63h0jocdhr" path="res://Art/Fonts/Inter/Inter-Medium.ttf" id="4_ih4kp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vv41q"]
+bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aw1fj"]
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_udxyw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1e3r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a1qxb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wdapk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0joeq"]
+
+[node name="MainWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3eng3")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+
+[node name="Windows" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="wndInstalação" type="Control" parent="Windows"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Windows/wndInstalação"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Content" type="Control" parent="Windows/wndInstalação/MarginContainer"]
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Windows/wndInstalação/MarginContainer/Content"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+split_offset = 785
+
+[node name="DownloadPanel" type="Panel" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vv41q")
+
+[node name="MarginContainer" type="MarginContainer" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Control" type="Control" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="DownloadHousing" type="Panel" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_aw1fj")
+
+[node name="MarginContainer" type="MarginContainer" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Control" type="Control" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing/MarginContainer/Control"]
+layout_mode = 1
+offset_right = 185.0
+offset_bottom = 20.0
+theme_override_fonts/normal_font = ExtResource("3_3r5xi")
+theme_override_fonts/bold_font = ExtResource("4_ih4kp")
+bbcode_enabled = true
+text = "[b]POCKETVIZ 2 RELEASE"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing/MarginContainer/Control"]
+layout_mode = 1
+offset_top = 19.0
+offset_right = 185.0
+offset_bottom = 60.0
+theme_override_fonts/normal_font = ExtResource("3_3r5xi")
+theme_override_fonts/bold_font = ExtResource("4_ih4kp")
+bbcode_enabled = true
+text = "V1.0.0 | 20.3GB
+21/09/2024"
+fit_content = true
+
+[node name="DownloadHousing2" type="Panel" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_aw1fj")
+
+[node name="MarginContainer" type="MarginContainer" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Control" type="Control" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2/MarginContainer/Control"]
+layout_mode = 1
+offset_right = 185.0
+offset_bottom = 20.0
+theme_override_fonts/normal_font = ExtResource("3_3r5xi")
+theme_override_fonts/bold_font = ExtResource("4_ih4kp")
+bbcode_enabled = true
+text = "[b]POCKETVIZ 2 RC5"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2/MarginContainer/Control"]
+layout_mode = 1
+offset_top = 19.0
+offset_right = 185.0
+offset_bottom = 60.0
+theme_override_fonts/normal_font = ExtResource("3_3r5xi")
+theme_override_fonts/bold_font = ExtResource("4_ih4kp")
+bbcode_enabled = true
+text = "V1.0.0 | 19.3GB
+21/09/2024"
+fit_content = true
+
+[node name="NewsPanel" type="Panel" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vv41q")
+
+[node name="wndPacotes" type="Control" parent="Windows"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Windows/wndPacotes"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Content" type="Control" parent="Windows/wndPacotes/MarginContainer"]
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Windows/wndPacotes/MarginContainer/Content"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+split_offset = 785
+
+[node name="DownloadPanel" type="Panel" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vv41q")
+
+[node name="MarginContainer" type="MarginContainer" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Control" type="Control" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="DownloadHousing" type="Panel" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_aw1fj")
+
+[node name="MarginContainer" type="MarginContainer" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Control" type="Control" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing/MarginContainer/Control"]
+layout_mode = 1
+offset_right = 185.0
+offset_bottom = 20.0
+theme_override_fonts/normal_font = ExtResource("3_3r5xi")
+theme_override_fonts/bold_font = ExtResource("4_ih4kp")
+bbcode_enabled = true
+text = "[b]MODERN HOUSE PACK"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing/MarginContainer/Control"]
+layout_mode = 1
+offset_top = 19.0
+offset_right = 185.0
+offset_bottom = 60.0
+theme_override_fonts/normal_font = ExtResource("3_3r5xi")
+theme_override_fonts/bold_font = ExtResource("4_ih4kp")
+bbcode_enabled = true
+text = "V1.0.0 | 300GB
+21/09/2024"
+fit_content = true
+
+[node name="DownloadHousing2" type="Panel" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_aw1fj")
+
+[node name="MarginContainer" type="MarginContainer" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Control" type="Control" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2/MarginContainer/Control"]
+layout_mode = 1
+offset_right = 185.0
+offset_bottom = 20.0
+theme_override_fonts/normal_font = ExtResource("3_3r5xi")
+theme_override_fonts/bold_font = ExtResource("4_ih4kp")
+bbcode_enabled = true
+text = "[b]MADAGA GROUP"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2/MarginContainer/Control"]
+layout_mode = 1
+offset_top = 19.0
+offset_right = 185.0
+offset_bottom = 60.0
+theme_override_fonts/normal_font = ExtResource("3_3r5xi")
+theme_override_fonts/bold_font = ExtResource("4_ih4kp")
+bbcode_enabled = true
+text = "V1.0.0 | 300TB
+21/09/2024"
+fit_content = true
+
+[node name="NewsPanel" type="Panel" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vv41q")
+
+[node name="wndConta" type="Control" parent="Windows"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Windows/wndConta"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Content" type="Control" parent="Windows/wndConta/MarginContainer"]
+layout_mode = 2
+
+[node name="DownloadPanel" type="Panel" parent="Windows/wndConta/MarginContainer/Content"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vv41q")
+
+[node name="Header" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 83.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="HeaderBackground" type="ColorRect" parent="Header"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Header"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 10
+
+[node name="Content" type="Control" parent="Header/MarginContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Header/MarginContainer/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="btnInstall" type="Button" parent="Header/MarginContainer/Content/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_3rg3l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_udxyw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p1e3r")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a1qxb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
+text = "INSTALAÇÃO"
+
+[node name="btnPacotes" type="Button" parent="Header/MarginContainer/Content/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_3rg3l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_udxyw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p1e3r")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a1qxb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
+text = "PACOTES"
+
+[node name="btnConta" type="Button" parent="Header/MarginContainer/Content/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_3rg3l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_udxyw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p1e3r")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a1qxb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
+text = "CONTA"
+
+[node name="btnSair" type="Button" parent="Header/MarginContainer/Content/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_3rg3l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_udxyw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p1e3r")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a1qxb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
+text = "SAIR"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Header/MarginContainer/Content"]
+layout_mode = 2
+anchor_top = 0.302
+anchor_right = 1.0
+anchor_bottom = 0.698
+offset_left = 952.0
+offset_top = -0.026001
+offset_bottom = 0.026001
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_j5lki")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "POCKETVIZ 2"
+fit_content = true
+
+[connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnInstall" to="." method="_on_btn_install_button_down"]
+[connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnPacotes" to="." method="_on_btn_pacotes_button_down"]
+[connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnConta" to="." method="_on_btn_conta_button_down"]
+[connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnSair" to="." method="_on_btn_sair_button_down"]
