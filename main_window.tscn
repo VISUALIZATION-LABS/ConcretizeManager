@@ -483,7 +483,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_p1e3r")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_a1qxb")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
-text = "SAIR"
+text = "EXIT"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Header/MarginContainer/Content"]
 layout_mode = 2
