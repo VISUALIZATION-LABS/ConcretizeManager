@@ -435,6 +435,7 @@ scale = Vector2(0.17193, 0.17193)
 texture = ExtResource("4_k4ilk")
 
 [node name="AcrylicBlurPanel" type="Panel" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel"]
+visible = false
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
