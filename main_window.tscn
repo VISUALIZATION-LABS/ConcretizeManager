@@ -1,10 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://ouyh71iw5w5o"]
+[gd_scene load_steps=19 format=3 uid="uid://ouyh71iw5w5o"]
 
 [ext_resource type="Script" path="res://WindowManager.gd" id="1_3eng3"]
 [ext_resource type="FontFile" uid="uid://7w3wryjj81mc" path="res://Art/Fonts/Inter/Inter-SemiBold.ttf" id="1_3rg3l"]
 [ext_resource type="FontFile" uid="uid://dhiv3473q5bwi" path="res://Art/Fonts/Inter/Inter-Bold.ttf" id="2_j5lki"]
 [ext_resource type="FontFile" uid="uid://cx66tncyfdt0g" path="res://Art/Fonts/Inter/Inter-Regular.ttf" id="3_3r5xi"]
 [ext_resource type="FontFile" uid="uid://cjp63h0jocdhr" path="res://Art/Fonts/Inter/Inter-Medium.ttf" id="4_ih4kp"]
+[ext_resource type="Texture2D" uid="uid://4dni6ru1l86v" path="res://logoColorThick.png" id="4_k4ilk"]
+[ext_resource type="Shader" path="res://test.gdshader" id="4_lu04a"]
+[ext_resource type="Script" path="res://toggleAcrylicExample.gd" id="6_ji07w"]
+[ext_resource type="Script" path="res://blurslider.gd" id="7_4fclj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vv41q"]
 bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
@@ -19,6 +23,18 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmo3o"]
+bg_color = Color(0.121569, 0.0509804, 0.00784314, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b71gg"]
+shader = ExtResource("4_lu04a")
+shader_parameter/color = Color(0.2, 0.231373, 0.254902, 1)
+shader_parameter/blur = 3.5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_udxyw"]
 
@@ -57,7 +73,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="wndInstalação" type="Control" parent="Windows"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -368,6 +383,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vv41q")
 
 [node name="wndConta" type="Control" parent="Windows"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -401,10 +417,104 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vv41q")
 
-[node name="Panel" type="Panel" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Control" type="Control" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel"]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.535
+anchor_right = 0.5
+anchor_bottom = 0.535
+offset_left = -556.0
+offset_top = -280.875
+offset_right = 556.0
+offset_bottom = 244.125
+grow_horizontal = 0
+
+[node name="LogoColorThick" type="Sprite2D" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel/Control"]
+position = Vector2(556, 281)
+scale = Vector2(0.17193, 0.17193)
+texture = ExtResource("4_k4ilk")
+
+[node name="AcrylicBlurPanel" type="Panel" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -204.5
+offset_right = 168.0
+offset_bottom = 204.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cmo3o")
+
+[node name="ColorRect" type="ColorRect" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel/AcrylicBlurPanel"]
+material = SubResource("ShaderMaterial_b71gg")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel/AcrylicBlurPanel/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Control" type="Control" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel/AcrylicBlurPanel/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel/AcrylicBlurPanel/ColorRect/MarginContainer/Control"]
+layout_mode = 2
+offset_right = 316.0
+offset_bottom = 389.0
+theme_override_fonts/normal_font = ExtResource("3_3r5xi")
+theme_override_fonts/bold_font = ExtResource("4_ih4kp")
+bbcode_enabled = true
+text = "[b]PAINEL ACRÍLICO[/b]
+[fill]
+Isso é um painel acrílco utilizado para mostrar texto e outros tipos de informação.
+
+Esse tipo de painel é comum ser visto no MaterialUI e é parte do ReactiveUI da VISUALIZATION LABS"
+fit_content = true
+
+[node name="toggleAcrylic" type="Button" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -408.0
+offset_top = -205.5
+offset_right = -190.0
+offset_bottom = -135.5
+text = "Toggle acrylic"
+script = ExtResource("6_ji07w")
+
+[node name="HSlider" type="HSlider" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.535
+anchor_right = 0.5
+anchor_bottom = 0.535
+offset_left = -351.0
+offset_top = -135.875
+offset_right = -248.0
+offset_bottom = -119.875
+value = 35.0
+script = ExtResource("7_4fclj")
 
 [node name="Header" type="Control" parent="."]
 layout_mode = 1
@@ -492,12 +602,14 @@ text = "EXIT"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Header/MarginContainer/Content"]
 layout_mode = 2
-anchor_top = 0.302
-anchor_right = 1.0
-anchor_bottom = 0.698
-offset_left = 952.0
-offset_top = -0.026001
-offset_bottom = 0.026001
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 406.0
+offset_top = -12.5
+offset_right = 546.0
+offset_bottom = 12.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("2_j5lki")
@@ -506,6 +618,8 @@ bbcode_enabled = true
 text = "POCKETVIZ 2"
 fit_content = true
 
+[connection signal="button_down" from="Windows/wndConta/MarginContainer/Content/DownloadPanel/toggleAcrylic" to="Windows/wndConta/MarginContainer/Content/DownloadPanel/toggleAcrylic" method="_on_button_down"]
+[connection signal="value_changed" from="Windows/wndConta/MarginContainer/Content/DownloadPanel/HSlider" to="Windows/wndConta/MarginContainer/Content/DownloadPanel/HSlider" method="_on_value_changed"]
 [connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnInstall" to="." method="_on_btn_install_button_down"]
 [connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnPacotes" to="." method="_on_btn_pacotes_button_down"]
 [connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnConta" to="." method="_on_btn_conta_button_down"]
