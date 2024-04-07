@@ -4,5 +4,5 @@ extends HSlider
 
 
 func _on_value_changed(value: float) -> void:
-	$"../AcrylicBlurPanel/ColorRect".material.set_shader_parameter("blur", value/10)	
+	$"../AcrylicBlurPanel".material.set_shader_parameter("maxSize", value)	
 	pass # Replace with function body.
