@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://cx66tncyfdt0g" path="res://Art/Fonts/Inter/Inter-Regular.ttf" id="3_3r5xi"]
 [ext_resource type="FontFile" uid="uid://cjp63h0jocdhr" path="res://Art/Fonts/Inter/Inter-Medium.ttf" id="4_ih4kp"]
 [ext_resource type="Texture2D" uid="uid://4dni6ru1l86v" path="res://logoColorThick.png" id="4_k4ilk"]
-[ext_resource type="Shader" path="res://test.gdshader" id="4_lu04a"]
+[ext_resource type="Shader" path="res://acrylic.gdshader" id="4_lu04a"]
 [ext_resource type="Script" path="res://toggleAcrylicExample.gd" id="6_ji07w"]
 [ext_resource type="Script" path="res://blurslider.gd" id="7_4fclj"]
 
@@ -24,17 +24,18 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmo3o"]
-bg_color = Color(0.121569, 0.0509804, 0.00784314, 0)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fefef"]
+shader = ExtResource("4_lu04a")
+shader_parameter/maxSize = 44
+shader_parameter/downsampleAmount = 3.762
+shader_parameter/tint = Color(0.168627, 0.270588, 0.262745, 1)
+shader_parameter/colourMixType = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hj25b"]
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b71gg"]
-shader = ExtResource("4_lu04a")
-shader_parameter/color = Color(0.2, 0.231373, 0.254902, 1)
-shader_parameter/blur = 3.5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_udxyw"]
 
@@ -73,6 +74,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="wndInstalação" type="Control" parent="Windows"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -227,7 +229,6 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vv41q")
 
 [node name="wndPacotes" type="Control" parent="Windows"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -383,7 +384,6 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vv41q")
 
 [node name="wndConta" type="Control" parent="Windows"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -435,7 +435,7 @@ scale = Vector2(0.17193, 0.17193)
 texture = ExtResource("4_k4ilk")
 
 [node name="AcrylicBlurPanel" type="Panel" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel"]
-visible = false
+material = SubResource("ShaderMaterial_fefef")
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
@@ -449,18 +449,9 @@ offset_right = 168.0
 offset_bottom = 204.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_cmo3o")
+theme_override_styles/panel = SubResource("StyleBoxFlat_hj25b")
 
-[node name="ColorRect" type="ColorRect" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel/AcrylicBlurPanel"]
-material = SubResource("ShaderMaterial_b71gg")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel/AcrylicBlurPanel/ColorRect"]
+[node name="MarginContainer" type="MarginContainer" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel/AcrylicBlurPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -472,10 +463,10 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Control" type="Control" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel/AcrylicBlurPanel/ColorRect/MarginContainer"]
+[node name="Control" type="Control" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel/AcrylicBlurPanel/MarginContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel/AcrylicBlurPanel/ColorRect/MarginContainer/Control"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel/AcrylicBlurPanel/MarginContainer/Control"]
 layout_mode = 2
 offset_right = 316.0
 offset_bottom = 389.0
