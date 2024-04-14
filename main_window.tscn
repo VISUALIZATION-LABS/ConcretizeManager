@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ouyh71iw5w5o"]
+[gd_scene load_steps=20 format=3 uid="uid://ouyh71iw5w5o"]
 
 [ext_resource type="Script" path="res://WindowManager.gd" id="1_3eng3"]
 [ext_resource type="FontFile" uid="uid://7w3wryjj81mc" path="res://Art/Fonts/Inter/Inter-SemiBold.ttf" id="1_3rg3l"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" path="res://acrylic.gdshader" id="4_lu04a"]
 [ext_resource type="Script" path="res://toggleAcrylicExample.gd" id="6_ji07w"]
 [ext_resource type="Script" path="res://blurslider.gd" id="7_4fclj"]
+[ext_resource type="Script" path="res://SqlController.gd" id="8_ektlb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vv41q"]
 bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
@@ -74,7 +75,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="wndInstalação" type="Control" parent="Windows"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -508,6 +508,87 @@ offset_bottom = -119.875
 value = 35.0
 script = ExtResource("7_4fclj")
 
+[node name="wndAdmin" type="Control" parent="Windows"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_ektlb")
+
+[node name="MarginContainer" type="MarginContainer" parent="Windows/wndAdmin"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Content" type="Control" parent="Windows/wndAdmin/MarginContainer"]
+layout_mode = 2
+
+[node name="DownloadPanel" type="Panel" parent="Windows/wndAdmin/MarginContainer/Content"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vv41q")
+
+[node name="Control" type="Control" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel"]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.535
+anchor_right = 0.5
+anchor_bottom = 0.535
+offset_left = -556.0
+offset_top = -280.875
+offset_right = 556.0
+offset_bottom = 244.125
+grow_horizontal = 0
+
+[node name="TabContainer" type="TabContainer" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control"]
+layout_mode = 0
+offset_right = 1116.0
+offset_bottom = 522.0
+
+[node name="Admins" type="Control" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer"]
+layout_mode = 2
+
+[node name="OutAdmins" type="RichTextLabel" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer/Admins"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 372.0
+offset_bottom = 491.0
+
+[node name="Artists" type="Control" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer"]
+layout_mode = 2
+
+[node name="OutArtists" type="RichTextLabel" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer/Artists"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 372.0
+offset_bottom = 491.0
+
+[node name="Users" type="Control" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer"]
+layout_mode = 2
+
+[node name="OutUser" type="RichTextLabel" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer/Users"]
+unique_name_in_owner = true
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 372.0
+offset_bottom = 491.0
+
 [node name="Header" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 10
@@ -592,6 +673,16 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
 text = "EXIT"
 
+[node name="btnAdmin" type="Button" parent="Header/MarginContainer/Content/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_3rg3l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_udxyw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p1e3r")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a1qxb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
+text = "ADMIN"
+
 [node name="RichTextLabel" type="RichTextLabel" parent="Header/MarginContainer/Content"]
 layout_mode = 2
 anchor_left = 0.5
@@ -612,7 +703,9 @@ fit_content = true
 
 [connection signal="button_down" from="Windows/wndConta/MarginContainer/Content/DownloadPanel/toggleAcrylic" to="Windows/wndConta/MarginContainer/Content/DownloadPanel/toggleAcrylic" method="_on_button_down"]
 [connection signal="value_changed" from="Windows/wndConta/MarginContainer/Content/DownloadPanel/HSlider" to="Windows/wndConta/MarginContainer/Content/DownloadPanel/HSlider" method="_on_value_changed"]
+[connection signal="tab_changed" from="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer" to="Windows/wndAdmin" method="_on_tab_container_tab_changed"]
 [connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnInstall" to="." method="_on_btn_install_button_down"]
 [connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnPacotes" to="." method="_on_btn_pacotes_button_down"]
 [connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnConta" to="." method="_on_btn_conta_button_down"]
 [connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnSair" to="." method="_on_btn_sair_button_down"]
+[connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnAdmin" to="." method="_on_btn_admin_button_down"]

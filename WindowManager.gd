@@ -39,3 +39,13 @@ func _on_btn_conta_button_down() -> void:
 
 func _on_btn_sair_button_down() -> void:
 	get_tree().quit()
+
+
+func _on_btn_admin_button_down() -> void:
+	var nodes:Array = getControl($Windows)
+	nodes[3].visible = true
+	
+	for i in nodes.size():
+		if i != 3:
+			nodes[i].visible = false
+
