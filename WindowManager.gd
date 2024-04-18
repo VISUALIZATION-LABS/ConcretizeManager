@@ -1,7 +1,9 @@
 extends Control
 
 func _ready() -> void:
-	pass
+# Hides Everything else so only the loginWindow Appears
+	$Windows.hide()
+	$Header.hide()
 
 func getControl(node:Control) -> Array:
 		var children:Array = []

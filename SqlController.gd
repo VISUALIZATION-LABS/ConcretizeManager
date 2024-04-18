@@ -2,7 +2,8 @@ extends Control
 
 var text: Array
 var database: SQLite
-
+var login: String
+var password: String
 func _ready() -> void:
 #Inciciação da Tabela e path da tabela
 	database = SQLite.new()
@@ -63,3 +64,8 @@ func _on_tab_container_tab_changed(tab) -> void:
 				%OutUser.text += "Nome de Usuario: " + text[i]['username'] + "\n"
 				%OutUser.text += "Senha: " + str(text[i]['password']) + "\n"
 
+#Funcionalidade Tela de Login
+func _on_login_button_button_down() -> void:
+	$UsernameBox.text = login
+	$PasswordBox.text = password
+	#then use a custom sql function so display all tables at the same itme and then use the information

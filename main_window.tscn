@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ouyh71iw5w5o"]
+[gd_scene load_steps=23 format=3 uid="uid://ouyh71iw5w5o"]
 
 [ext_resource type="Script" path="res://WindowManager.gd" id="1_3eng3"]
 [ext_resource type="FontFile" uid="uid://7w3wryjj81mc" path="res://Art/Fonts/Inter/Inter-SemiBold.ttf" id="1_3rg3l"]
@@ -10,6 +10,9 @@
 [ext_resource type="Script" path="res://toggleAcrylicExample.gd" id="6_ji07w"]
 [ext_resource type="Script" path="res://blurslider.gd" id="7_4fclj"]
 [ext_resource type="Script" path="res://SqlController.gd" id="8_ektlb"]
+[ext_resource type="Theme" uid="uid://dmtkb58tn0mco" path="res://PVIZ2UI.tres" id="11_56fxm"]
+[ext_resource type="Texture2D" uid="uid://c4clcb547eth0" path="res://check-mark.svg" id="12_nmsmf"]
+[ext_resource type="Texture2D" uid="uid://djptjg8johbqh" path="res://cancel-button.svg" id="13_b0atx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vv41q"]
 bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
@@ -67,6 +70,7 @@ grow_vertical = 2
 color = Color(0.0470588, 0.0470588, 0.0470588, 1)
 
 [node name="Windows" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -570,6 +574,7 @@ offset_right = 372.0
 offset_bottom = 491.0
 
 [node name="Artists" type="Control" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="OutArtists" type="RichTextLabel" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer/Artists"]
@@ -579,6 +584,7 @@ offset_right = 372.0
 offset_bottom = 491.0
 
 [node name="Users" type="Control" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="OutUser" type="RichTextLabel" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer/Users"]
@@ -590,6 +596,7 @@ offset_right = 372.0
 offset_bottom = 491.0
 
 [node name="Header" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -701,6 +708,96 @@ bbcode_enabled = true
 text = "POCKETVIZ 2"
 fit_content = true
 
+[node name="LoginWindow" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.994
+offset_bottom = -0.112
+metadata/_edit_lock_ = true
+
+[node name="LogoColorThick" type="Sprite2D" parent="LoginWindow"]
+position = Vector2(568, 120)
+scale = Vector2(0.214912, 0.214912)
+texture = ExtResource("4_k4ilk")
+
+[node name="LoginText" type="Label" parent="LoginWindow"]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 184.0
+offset_right = 636.0
+offset_bottom = 246.0
+theme = ExtResource("11_56fxm")
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 50
+text = "Login"
+
+[node name="UsernameBox" type="TextEdit" parent="LoginWindow"]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 272.0
+offset_right = 792.0
+offset_bottom = 320.0
+placeholder_text = "Username or Email"
+
+[node name="PasswordBox" type="TextEdit" parent="LoginWindow"]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 344.0
+offset_right = 792.0
+offset_bottom = 392.0
+placeholder_text = "Password"
+
+[node name="LoginButton" type="Button" parent="LoginWindow"]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 432.0
+offset_right = 539.0
+offset_bottom = 512.0
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 30
+text = "Login"
+icon = ExtResource("12_nmsmf")
+expand_icon = true
+
+[node name="CancelButton" type="Button" parent="LoginWindow"]
+offset_left = 584.0
+offset_top = 432.0
+offset_right = 777.0
+offset_bottom = 512.0
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 30
+text = "Cancel"
+icon = ExtResource("13_b0atx")
+expand_icon = true
+
+[node name="AccountText" type="Label" parent="LoginWindow"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 544.0
+offset_right = 592.0
+offset_bottom = 567.0
+text = "Don't have an account?"
+
+[node name="SignUpButton" type="Button" parent="LoginWindow"]
+layout_mode = 0
+offset_left = 592.0
+offset_top = 536.0
+offset_right = 672.0
+offset_bottom = 575.0
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.321569, 0.87451, 1, 1)
+text = "Sign Up"
+
+[node name="Button" type="Button" parent="LoginWindow"]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 584.0
+offset_right = 640.0
+offset_bottom = 624.0
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.321569, 0.87451, 1, 1)
+text = "Forgot your password?"
+
 [connection signal="button_down" from="Windows/wndConta/MarginContainer/Content/DownloadPanel/toggleAcrylic" to="Windows/wndConta/MarginContainer/Content/DownloadPanel/toggleAcrylic" method="_on_button_down"]
 [connection signal="value_changed" from="Windows/wndConta/MarginContainer/Content/DownloadPanel/HSlider" to="Windows/wndConta/MarginContainer/Content/DownloadPanel/HSlider" method="_on_value_changed"]
 [connection signal="tab_changed" from="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer" to="Windows/wndAdmin" method="_on_tab_container_tab_changed"]
@@ -709,3 +806,4 @@ fit_content = true
 [connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnConta" to="." method="_on_btn_conta_button_down"]
 [connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnSair" to="." method="_on_btn_sair_button_down"]
 [connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnAdmin" to="." method="_on_btn_admin_button_down"]
+[connection signal="button_down" from="LoginWindow/LoginButton" to="Windows/wndAdmin" method="_on_login_button_button_down"]
