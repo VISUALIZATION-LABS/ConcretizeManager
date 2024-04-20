@@ -1,10 +1,13 @@
 extends Control
 
+var text: Array
+var login: String
+var password: String
 func _ready() -> void:
 # Hides Everything else so only the LoginWindow Appears
 	$Windows.hide()
 	$Header.hide()
-	pass
+
 
 func getControl(node:Control) -> Array:
 		var children:Array = []
@@ -52,3 +55,7 @@ func _on_btn_admin_button_down() -> void:
 		if i != 3:
 			nodes[i].visible = false
 
+
+
+func _on_login_button_button_down():
+	pass # Replace with function body.
