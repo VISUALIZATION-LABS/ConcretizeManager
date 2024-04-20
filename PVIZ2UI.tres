@@ -52,4 +52,6 @@ Button/styles/focus = SubResource("StyleBoxFlat_xs6fo")
 Button/styles/hover = SubResource("StyleBoxFlat_uov3d")
 Button/styles/normal = SubResource("StyleBoxFlat_qvxqi")
 Button/styles/pressed = SubResource("StyleBoxFlat_l5nd0")
+LoginButton/base_type = &"Button"
+LoginButton/colors/font_color = Color(0.321569, 0.87451, 1, 1)
 Panel/styles/panel = SubResource("StyleBoxFlat_4vs7t")

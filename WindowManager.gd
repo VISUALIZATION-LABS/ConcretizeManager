@@ -1,5 +1,6 @@
 extends Control
 
+#Priviledge system will work like this 0 = Admins, 1 = Artists, 2 = Users
 var priviledge: int
 var text: Array
 var login: String
@@ -63,8 +64,8 @@ func _on_btn_admin_button_down() -> void:
 
 func _on_login_button_button_down():
 	#Get Input from the user
-		login = $LoginWindow/UsernameBox.text
-		password = $LoginWindow/PasswordBox.text  
+		login = $LoginWindow/MainLogin/UsernameBox.text
+		password = $LoginWindow/MainLogin/PasswordBox.text  
 		#Loop throught all the logins
 		for i in text.size():
 			#If login as email or username is correct
@@ -80,3 +81,21 @@ func _on_login_button_button_down():
 			else:
 			#Wrong Login
 				print("Incorrect.")
+
+#Sign up Button window
+func _on_sign_up_button_button_down():
+	$LoginWindow/MainLogin.hide()
+	$LoginWindow/wndRegister.show()
+
+#Cancel Button from register page
+func _on_reg_cancel_button_button_down():
+	$LoginWindow/MainLogin.show()
+	$LoginWindow/wndRegister.hide()
+
+#Cancel Button from MainLogin
+func _on_cancel_button_button_down():
+	get_tree().quit()
+
+
+func _on_login_user_button_button_down():
+	pass # Replace with function body.
