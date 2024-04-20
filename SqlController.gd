@@ -56,11 +56,3 @@ func _on_tab_container_tab_changed(tab) -> void:
 				%OutUser.text += "Nome de Usuario: " + text[i]['username'] + "\n"
 				%OutUser.text += "Senha: " + str(text[i]['password']) + "\n"
 
-#Logic for Registering the User on the Database
-func _on_register_button_button_down():
-	var data = {
-	"username": $root/MainWindow/LoginWindow/wndRegister/RegUsernameBox.text,
-	"password": $root/MainWindow/LoginWindow/wndRegister/RegPasswordBox.text
-	}
-#Inserir os dados na tabela
-	database.insert_row("Accounts", data)
