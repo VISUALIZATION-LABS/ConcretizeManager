@@ -56,3 +56,6 @@ func _on_tab_container_tab_changed(tab) -> void:
 				%OutUser.text += "Nome de Usuario: " + text[i]['username'] + "\n"
 				%OutUser.text += "Senha: " + str(text[i]['password']) + "\n"
 
+#Register User Logic
+func _on_register_button_button_down():
+	pass # Replace with function body.

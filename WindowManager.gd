@@ -1,5 +1,6 @@
 extends Control
 
+#Priviledge Sintax: 0 = Admin, 1 = Artist, 2 = User, 3 = TempUser
 var priviledge: int
 var text: Array
 var login: String
@@ -39,12 +40,14 @@ func _on_btn_pacotes_button_down() -> void:
 
 
 func _on_btn_conta_button_down() -> void:
-	var nodes:Array = getControl($Windows)
-	nodes[2].visible = true
-	
-	for i in nodes.size():
-		if i != 2:
-			nodes[i].visible = false
+	#Check if Login is not a TempUser
+	if priviledge != 3:
+		var nodes:Array = getControl($Windows)
+		nodes[2].visible = true
+		
+		for i in nodes.size():
+			if i != 2:
+				nodes[i].visible = false
 
 
 func _on_btn_sair_button_down() -> void:
@@ -52,7 +55,7 @@ func _on_btn_sair_button_down() -> void:
 
 
 func _on_btn_admin_button_down() -> void:
-	#Check if Account has priviledge to open this page
+	#Check if Login is admin so he can open this page
 	if priviledge == 0:
 		var nodes:Array = getControl($Windows)
 		nodes[3].visible = true
@@ -80,3 +83,24 @@ func _on_login_button_button_down():
 			else:
 			#Wrong Login
 				print("Incorrect.")
+
+#Cancel Button wndMain
+func _on_cancel_button_button_down():
+	get_tree().quit()
+
+#Change window to sign up window
+func _on_sign_up_button_button_down():
+	$LoginWindow/wndMain.hide()
+	$LoginWindow/wndRegister.show()
+
+#Go back to main login window
+func _on_reg_cancel_button_button_down():
+	$LoginWindow/wndMain.show()
+	$LoginWindow/wndRegister.hide()
+
+#Login as a Temporary User
+func _on_user_button_button_down():
+	priviledge = 3
+	$LoginWindow/wndMain.hide()
+	$Windows.show()
+	$Header.show()
