@@ -16,6 +16,11 @@ func _ready() -> void:
 		%OutAdmins.text += "Email: " + text[i]['email'] + "\n"
 		%OutAdmins.text += "Nome de Usuario: " + text[i]['username'] + "\n"
 		%OutAdmins.text += "Senha: " + str(text[i]['password']) + "\n"
+	#Add Options For TypeSelector
+	$MarginContainer/Content/DownloadPanel/Control/TypeSelector.add_item("Admin", 0)
+	$MarginContainer/Content/DownloadPanel/Control/TypeSelector.add_item("Artist", 1)
+	$MarginContainer/Content/DownloadPanel/Control/TypeSelector.add_item("User", 2)
+	#Declaration of the options on AccountSelector in WindowManager.gd
 
 
 #Obter dados da tabela e retorna-los sintaxe: "table name", "conditions", "what to get"
@@ -57,5 +62,30 @@ func _on_tab_container_tab_changed(tab) -> void:
 				%OutUser.text += "Senha: " + str(text[i]['password']) + "\n"
 
 #Register User Logic
-func _on_register_button_button_down():
-	pass # Replace with function body.
+func _on_register_button_button_down() -> void:
+#Data to be Inserted on the table
+	var data = {
+	"username": $root/MainWindow/LoginWindow/wndRegister/RegUsernameBox.text,
+	"password": $root/MainWindow/LoginWindow/wndRegister/RegUsernameBox.text,
+	"type": 2
+	}
+#Inserir os dados na tabela
+	database.insert_row("Accounts", data)
+
+#Type Selector Logic
+func _on_type_selector_item_selected(index) -> void:
+#If your adding a user hide the email box
+	if index == 2:
+		$MarginContainer/Content/DownloadPanel/Control/UniEmailBox.hide()
+	else:
+		$MarginContainer/Content/DownloadPanel/Control/UniEmailBox.show()
+
+#Deletion Button Logic
+func _on_deletion_button_button_down() -> void:
+	var id: int
+	#Get the selected id
+	id = $MarginContainer/Content/DownloadPanel/Control/AccountSelector.selected
+	#Add one so it gets the correct one
+	id += 1 
+	#Delete the row with the same id as the selected id
+	database.delete_rows("Accounts", "id = %s" % [id])

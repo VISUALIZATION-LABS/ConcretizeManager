@@ -1,5 +1,5 @@
 extends Control
-
+#TODO: When package system is made block TempUsers from getting them or whatever felipe wants
 #Priviledge Sintax: 0 = Admin, 1 = Artist, 2 = User, 3 = TempUser
 var priviledge: int
 var text: Array
@@ -8,10 +8,13 @@ var password: String
 
 func _ready() -> void:
 # Hides Everything else so only the LoginWindow Appears
-	$Windows.hide()
-	$Header.hide()
+	#$Windows.hide()
+	#$Header.hide()
 	# Get all the Accounts from the database
 	text = $Windows/wndAdmin._read_table("type")
+	#Set All Accounts as Options on the AccountSelector
+	for i in text.size():
+		$Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/AccountSelector.add_item(str(text[i]['id']), i)
 
 
 func getControl(node:Control) -> Array:
@@ -64,7 +67,7 @@ func _on_btn_admin_button_down() -> void:
 			if i != 3:
 				nodes[i].visible = false
 
-func _on_login_button_button_down():
+func _on_login_button_button_down() -> void:
 	#Get Input from the user
 		login = $LoginWindow/UsernameBox.text
 		password = $LoginWindow/PasswordBox.text  
@@ -85,21 +88,21 @@ func _on_login_button_button_down():
 				print("Incorrect.")
 
 #Cancel Button wndMain
-func _on_cancel_button_button_down():
+func _on_cancel_button_button_down() -> void:
 	get_tree().quit()
 
 #Change window to sign up window
-func _on_sign_up_button_button_down():
+func _on_sign_up_button_button_down() -> void:
 	$LoginWindow/wndMain.hide()
 	$LoginWindow/wndRegister.show()
 
 #Go back to main login window
-func _on_reg_cancel_button_button_down():
+func _on_reg_cancel_button_button_down() -> void:
 	$LoginWindow/wndMain.show()
 	$LoginWindow/wndRegister.hide()
 
 #Login as a Temporary User
-func _on_user_button_button_down():
+func _on_user_button_button_down() -> void:
 	priviledge = 3
 	$LoginWindow/wndMain.hide()
 	$Windows.show()
