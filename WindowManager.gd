@@ -8,8 +8,8 @@ var password: String
 
 func _ready() -> void:
 # Hides Everything else so only the LoginWindow Appears
-	$Windows.hide()
-	$Header.hide()
+	#$Windows.hide()
+	#$Header.hide()
 	# Get all the Accounts from the database
 	text = $Windows/wndAdmin._read_table("type")
 	#Set All Accounts as Options on the AccountSelector
@@ -73,16 +73,18 @@ func _on_login_button_button_down() -> void:
 		password = $LoginWindow/wndMain/PasswordBox.text  
 		#Loop throught all the logins
 		for i in text.size():
-			#If login as email or username is correct
+			#Check if email or username is correct
 			if login == text[i]['email'] || login == text[i]['username']:
-				#Password Check
-				if password == text[i]['password']:
-					#Hide login and turn everything back on
-					$LoginWindow.hide()
-					$Windows.show()
-					$Header.show()
-					#Set priviledge as the one from the account
-					priviledge = text[i]['type']
+				#Check if login isnt equal to nothing
+				if login != "":
+					#Check if password is correct
+					if password == text[i]['password']:
+						#Hide login and turn everything back on
+						$LoginWindow.hide()
+						$Windows.show()
+						$Header.show()
+						#Set priviledge as the one from the account
+						priviledge = text[i]['type']
 			else:
 			#Wrong Login
 				print("Incorrect.")
