@@ -512,6 +512,7 @@ value = 35.0
 script = ExtResource("7_4fclj")
 
 [node name="wndAdmin" type="Control" parent="Windows"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -784,7 +785,6 @@ text = "POCKETVIZ 2"
 fit_content = true
 
 [node name="LoginWindow" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchor_right = 1.0
 anchor_bottom = 0.994
@@ -902,6 +902,7 @@ scale = Vector2(0.214912, 0.214912)
 texture = ExtResource("4_k4ilk")
 
 [node name="InsertText" type="Label" parent="LoginWindow/wndRegister"]
+layout_mode = 0
 offset_left = 344.0
 offset_top = 240.0
 offset_right = 578.0
@@ -909,6 +910,7 @@ offset_bottom = 272.0
 text = "Please Insert your credentials:"
 
 [node name="RegUsernameBox" type="TextEdit" parent="LoginWindow/wndRegister"]
+layout_mode = 0
 offset_left = 344.0
 offset_top = 272.0
 offset_right = 792.0
@@ -916,6 +918,7 @@ offset_bottom = 320.0
 placeholder_text = "Username"
 
 [node name="RegPasswordBox" type="TextEdit" parent="LoginWindow/wndRegister"]
+layout_mode = 0
 offset_left = 344.0
 offset_top = 344.0
 offset_right = 792.0
@@ -923,6 +926,7 @@ offset_bottom = 392.0
 placeholder_text = "Password"
 
 [node name="RegisterButton" type="Button" parent="LoginWindow/wndRegister"]
+layout_mode = 0
 offset_left = 352.0
 offset_top = 432.0
 offset_right = 539.0
@@ -934,6 +938,7 @@ icon = ExtResource("12_nmsmf")
 expand_icon = true
 
 [node name="RegCancelButton" type="Button" parent="LoginWindow/wndRegister"]
+layout_mode = 0
 offset_left = 584.0
 offset_top = 432.0
 offset_right = 777.0

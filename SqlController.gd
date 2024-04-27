@@ -20,7 +20,8 @@ func _ready() -> void:
 	$MarginContainer/Content/DownloadPanel/Control/TypeSelector.add_item("Admin", 0)
 	$MarginContainer/Content/DownloadPanel/Control/TypeSelector.add_item("Artist", 1)
 	$MarginContainer/Content/DownloadPanel/Control/TypeSelector.add_item("User", 2)
-	#Declaration of the options on AccountSelector in WindowManager.gd
+	# Warning Declaration of the options on AccountSelector in WindowManager.gd
+	#To use less resources since we already do that there
 
 
 #Obter dados da tabela e retorna-los sintaxe: "table name", "conditions", "what to get"
@@ -83,9 +84,12 @@ func _on_type_selector_item_selected(index) -> void:
 #Deletion Button Logic
 func _on_deletion_button_button_down() -> void:
 	var id: int
-	#Get the selected id
-	id = $MarginContainer/Content/DownloadPanel/Control/AccountSelector.selected
-	#Add one so it gets the correct one
-	id += 1 
+	#Get the name of the selected item and convert to an int
+	id = int($MarginContainer/Content/DownloadPanel/Control/AccountSelector.get_item_text($MarginContainer/Content/DownloadPanel/Control/AccountSelector.selected))
+	#There probably is a better way to do this but who cares
 	#Delete the row with the same id as the selected id
 	database.delete_rows("Accounts", "id = %s" % [id])
+
+
+func _on_add_account_button_button_down():
+	pass # Replace with function body.

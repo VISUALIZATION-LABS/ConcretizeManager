@@ -8,8 +8,8 @@ var password: String
 
 func _ready() -> void:
 # Hides Everything else so only the LoginWindow Appears
-	#$Windows.hide()
-	#$Header.hide()
+	$Windows.hide()
+	$Header.hide()
 	# Get all the Accounts from the database
 	text = $Windows/wndAdmin._read_table("type")
 	#Set All Accounts as Options on the AccountSelector
@@ -69,8 +69,8 @@ func _on_btn_admin_button_down() -> void:
 
 func _on_login_button_button_down() -> void:
 	#Get Input from the user
-		login = $LoginWindow/UsernameBox.text
-		password = $LoginWindow/PasswordBox.text  
+		login = $LoginWindow/wndMain/UsernameBox.text
+		password = $LoginWindow/wndMain/PasswordBox.text  
 		#Loop throught all the logins
 		for i in text.size():
 			#If login as email or username is correct
@@ -104,6 +104,6 @@ func _on_reg_cancel_button_button_down() -> void:
 #Login as a Temporary User
 func _on_user_button_button_down() -> void:
 	priviledge = 3
-	$LoginWindow/wndMain.hide()
+	$LoginWindow.hide()
 	$Windows.show()
 	$Header.show()
