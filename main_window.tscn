@@ -568,7 +568,6 @@ offset_bottom = 522.0
 layout_mode = 2
 
 [node name="OutAdmins" type="RichTextLabel" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer/Admins"]
-unique_name_in_owner = true
 layout_mode = 2
 offset_right = 372.0
 offset_bottom = 491.0
@@ -578,7 +577,6 @@ visible = false
 layout_mode = 2
 
 [node name="OutArtists" type="RichTextLabel" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer/Artists"]
-unique_name_in_owner = true
 layout_mode = 2
 offset_right = 372.0
 offset_bottom = 491.0
@@ -588,7 +586,6 @@ visible = false
 layout_mode = 2
 
 [node name="OutUser" type="RichTextLabel" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer/Users"]
-unique_name_in_owner = true
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -630,6 +627,7 @@ offset_bottom = 330.0
 placeholder_text = "Password"
 
 [node name="TypeSelector" type="OptionButton" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 876.0
 offset_top = 113.0
@@ -654,6 +652,7 @@ text = "Delete Account
 "
 
 [node name="AccountSelector" type="OptionButton" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 388.0
 offset_top = 385.0

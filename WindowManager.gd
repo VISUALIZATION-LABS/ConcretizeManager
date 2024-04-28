@@ -14,7 +14,7 @@ func _ready() -> void:
 	text = $Windows/wndAdmin._read_table("type")
 	#Set All Accounts as Options on the AccountSelector
 	for i in text.size():
-		$Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/AccountSelector.add_item(str(text[i]['id']), i)
+		%AccountSelector.add_item(str(text[i]['id']), i)
 
 
 func getControl(node:Control) -> Array:
