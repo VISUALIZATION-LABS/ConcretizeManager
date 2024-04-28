@@ -11,7 +11,7 @@ func _ready() -> void:
 #Dados da Tablela = id, email, username, password, type
 #Inserir dados da tabela quando a pagina admin é inciada pela primeira vez
 	table_text = _read_table(0)
-	_output_table($MarginContainer/Content/DownloadPanel/Control/TabContainer/Admins/OutAdmins)
+	_output_table(%OutAdmins)
 	#Add Options For TypeSelector
 	%TypeSelector.add_item("Admin", 0)
 	%TypeSelector.add_item("Artist", 1)
@@ -46,34 +46,34 @@ func _update_account_select() -> void:
 #Funcionalidade das Abas
 func _on_tab_container_tab_changed(tab) -> void:
 #Limpar as Caixas de Texto todas as vezes que se mudar de aba
-	$MarginContainer/Content/DownloadPanel/Control/TabContainer/Admins/OutAdmins.set_text("")
-	$MarginContainer/Content/DownloadPanel/Control/TabContainer/Artists/OutArtists.set_text("")
-	$MarginContainer/Content/DownloadPanel/Control/TabContainer/Users/OutUser.set_text("")
+	%OutAdmins.set_text("")
+	%OutArtists.set_text("")
+	%OutUser.set_text("")
 #Read the table according to the tab
 	table_text = _read_table(tab)
 #Output the text to the corresponding tab
 	match tab:
 		0:
-			_output_table($MarginContainer/Content/DownloadPanel/Control/TabContainer/Admins/OutAdmins)
+			_output_table(%OutAdmins)
 		1:
-			_output_table($MarginContainer/Content/DownloadPanel/Control/TabContainer/Artists/OutArtists)
+			_output_table(%OutArtists)
 		2:
-			_output_table($MarginContainer/Content/DownloadPanel/Control/TabContainer/Users/OutUser)
+			_output_table(%OutUser)
 
 #Registers a user from the register screen
 func _on_register_button_button_down() -> void:
 #Data to be Inserted on the table
 	var data = {
 	"email": "",
-	"username": $/root/MainWindow/LoginWindow/wndRegister/RegUsernameBox.text,
-	"password": $/root/MainWindow/LoginWindow/wndRegister/RegPasswordBox.text,
+	"username": %RegUsernameBox.text,
+	"password": %RegPasswordBox.text,
 	"type": 2
 	}
 #Inserir os dados na tabela
 	database.insert_row("Accounts", data)
 #Display login screen again
-	$/root/MainWindow/LoginWindow/wndRegister.hide()
-	$/root/MainWindow/LoginWindow/wndMain.show()
+	%wndRegister.hide()
+	%wndMain.show()
 
 #Detect if the account your creating is a user if so delete email box
 func _on_type_selector_item_selected(index) -> void:
@@ -94,7 +94,7 @@ func _on_deletion_button_button_down() -> void:
 	#Refresh Ids on Account Select
 	_update_account_select()
 	#Refresh Current Tab
-	_on_tab_container_tab_changed($MarginContainer/Content/DownloadPanel/Control/TabContainer.current_tab)
+	_on_tab_container_tab_changed(%TabContainer.current_tab)
 
 #Add new account with data input
 func _on_add_account_button_button_down():
@@ -111,4 +111,4 @@ func _on_add_account_button_button_down():
 	#Refresh Ids on Account Select
 	_update_account_select()
 	#Refresh Current Tab
-	_on_tab_container_tab_changed($MarginContainer/Content/DownloadPanel/Control/TabContainer.current_tab)
+	_on_tab_container_tab_changed(%TabContainer.current_tab)
