@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ouyh71iw5w5o"]
+[gd_scene load_steps=23 format=3 uid="uid://ouyh71iw5w5o"]
 
 [ext_resource type="Script" path="res://WindowManager.gd" id="1_3eng3"]
 [ext_resource type="FontFile" uid="uid://7w3wryjj81mc" path="res://Art/Fonts/Inter/Inter-SemiBold.ttf" id="1_3rg3l"]
@@ -9,6 +9,10 @@
 [ext_resource type="Shader" path="res://acrylic.gdshader" id="4_lu04a"]
 [ext_resource type="Script" path="res://toggleAcrylicExample.gd" id="6_ji07w"]
 [ext_resource type="Script" path="res://blurslider.gd" id="7_4fclj"]
+[ext_resource type="Script" path="res://SqlController.gd" id="8_ektlb"]
+[ext_resource type="Theme" uid="uid://dmtkb58tn0mco" path="res://PVIZ2UI.tres" id="11_56fxm"]
+[ext_resource type="Texture2D" uid="uid://c4clcb547eth0" path="res://check-mark.svg" id="12_nmsmf"]
+[ext_resource type="Texture2D" uid="uid://djptjg8johbqh" path="res://cancel-button.svg" id="13_b0atx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vv41q"]
 bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
@@ -66,6 +70,7 @@ grow_vertical = 2
 color = Color(0.0470588, 0.0470588, 0.0470588, 1)
 
 [node name="Windows" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,7 +79,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="wndInstalação" type="Control" parent="Windows"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -229,6 +233,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vv41q")
 
 [node name="wndPacotes" type="Control" parent="Windows"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -384,6 +389,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vv41q")
 
 [node name="wndConta" type="Control" parent="Windows"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -508,7 +514,217 @@ offset_bottom = -119.875
 value = 35.0
 script = ExtResource("7_4fclj")
 
+[node name="wndAdmin" type="Control" parent="Windows"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_ektlb")
+
+[node name="MarginContainer" type="MarginContainer" parent="Windows/wndAdmin"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Content" type="Control" parent="Windows/wndAdmin/MarginContainer"]
+layout_mode = 2
+
+[node name="DownloadPanel" type="Panel" parent="Windows/wndAdmin/MarginContainer/Content"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vv41q")
+
+[node name="Control" type="Control" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Admins" type="Control" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer"]
+layout_mode = 2
+
+[node name="OutAdmins" type="TextEdit" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer/Admins"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 372.0
+offset_bottom = 491.0
+theme = ExtResource("11_56fxm")
+editable = false
+shortcut_keys_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+scroll_smooth = true
+
+[node name="Artists" type="Control" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="OutArtists" type="TextEdit" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer/Artists"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 372.0
+offset_bottom = 491.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_56fxm")
+editable = false
+shortcut_keys_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+scroll_smooth = true
+metadata/_edit_use_anchors_ = true
+
+[node name="NewAccountLabel" type="Label" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.349
+anchor_top = 0.078
+anchor_right = 0.349
+anchor_bottom = 0.078
+offset_left = -0.0880127
+offset_top = 0.0499992
+offset_right = 175.912
+offset_bottom = 32.05
+grow_horizontal = 2
+grow_vertical = 2
+text = "Adicionar nova Conta"
+
+[node name="UniEmailBox" type="TextEdit" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control"]
+layout_mode = 2
+anchor_left = 0.349
+anchor_top = 0.154
+anchor_right = 0.349
+anchor_bottom = 0.154
+offset_left = -0.0880127
+offset_top = 0.149994
+offset_right = 431.912
+offset_bottom = 72.15
+theme = ExtResource("11_56fxm")
+placeholder_text = "Email"
+
+[node name="UniUserBox" type="TextEdit" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control"]
+layout_mode = 2
+anchor_left = 0.349
+anchor_top = 0.322
+anchor_right = 0.349
+anchor_bottom = 0.322
+offset_left = -0.0880127
+offset_top = -0.0500183
+offset_right = 431.912
+offset_bottom = 71.95
+theme = ExtResource("11_56fxm")
+placeholder_text = "Username"
+
+[node name="UniPassBox" type="TextEdit" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control"]
+layout_mode = 2
+anchor_left = 0.349
+anchor_top = 0.474
+anchor_right = 0.349
+anchor_bottom = 0.474
+offset_left = -0.0880127
+offset_top = 0.149979
+offset_right = 431.912
+offset_bottom = 81.15
+placeholder_text = "Password"
+
+[node name="TypeSelector" type="OptionButton" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.788
+anchor_top = 0.215
+anchor_right = 0.788
+anchor_bottom = 0.215
+offset_left = -0.256042
+offset_top = 0.125
+offset_right = 167.744
+offset_bottom = 20.125
+
+[node name="AddAccountButton" type="Button" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.795
+anchor_top = 0.383
+anchor_right = 0.795
+anchor_bottom = 0.383
+offset_left = -0.0400391
+offset_top = -0.0750122
+offset_right = 155.96
+offset_bottom = 32.925
+text = "Add Account"
+
+[node name="DeleteAccountLabel" type="Label" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.349
+anchor_top = 0.642
+anchor_right = 0.349
+anchor_bottom = 0.642
+offset_left = -0.0880127
+offset_top = -0.0500183
+offset_right = 39.912
+offset_bottom = 22.95
+text = "Delete Account
+"
+
+[node name="AccountSelector" type="OptionButton" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.349
+anchor_top = 0.733
+anchor_right = 0.349
+anchor_bottom = 0.733
+offset_left = -0.0880127
+offset_top = 0.174988
+offset_right = 63.912
+offset_bottom = 20.175
+
+[node name="DeletionButton" type="Button" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.428
+anchor_top = 0.718
+anchor_right = 0.428
+anchor_bottom = 0.718
+offset_left = 0.0639648
+offset_top = 0.0499573
+offset_right = 148.064
+offset_bottom = 33.05
+theme = ExtResource("11_56fxm")
+text = "Delete"
+
 [node name="Header" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -592,6 +808,16 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
 text = "EXIT"
 
+[node name="btnAdmin" type="Button" parent="Header/MarginContainer/Content/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_3rg3l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_udxyw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p1e3r")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a1qxb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
+text = "ADMIN"
+
 [node name="RichTextLabel" type="RichTextLabel" parent="Header/MarginContainer/Content"]
 layout_mode = 2
 anchor_left = 0.5
@@ -610,9 +836,114 @@ bbcode_enabled = true
 text = "POCKETVIZ 2"
 fit_content = true
 
+[node name="LoginWindow" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.994
+offset_bottom = -0.112
+metadata/_edit_lock_ = true
+
+[node name="wndMain" type="Control" parent="LoginWindow"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LogoColorThick" type="Sprite2D" parent="LoginWindow/wndMain"]
+position = Vector2(568, 120)
+scale = Vector2(0.214912, 0.214912)
+texture = ExtResource("4_k4ilk")
+
+[node name="LoginText" type="Label" parent="LoginWindow/wndMain"]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 184.0
+offset_right = 636.0
+offset_bottom = 246.0
+theme = ExtResource("11_56fxm")
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 50
+text = "Login"
+
+[node name="UsernameBox" type="TextEdit" parent="LoginWindow/wndMain"]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 272.0
+offset_right = 792.0
+offset_bottom = 320.0
+placeholder_text = "Username or Email"
+
+[node name="PasswordBox" type="TextEdit" parent="LoginWindow/wndMain"]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 344.0
+offset_right = 792.0
+offset_bottom = 392.0
+placeholder_text = "Password"
+
+[node name="LoginButton" type="Button" parent="LoginWindow/wndMain"]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 432.0
+offset_right = 539.0
+offset_bottom = 512.0
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 30
+text = "Login"
+icon = ExtResource("12_nmsmf")
+expand_icon = true
+
+[node name="CancelButton" type="Button" parent="LoginWindow/wndMain"]
+layout_mode = 0
+offset_left = 584.0
+offset_top = 432.0
+offset_right = 777.0
+offset_bottom = 512.0
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 30
+text = "Cancel"
+icon = ExtResource("13_b0atx")
+expand_icon = true
+
+[node name="AccountText" type="Label" parent="LoginWindow/wndMain"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 544.0
+offset_right = 592.0
+offset_bottom = 567.0
+text = "Don't have an account?"
+
+[node name="ForgetButton" type="Button" parent="LoginWindow/wndMain"]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 584.0
+offset_right = 672.0
+offset_bottom = 624.0
+theme = ExtResource("11_56fxm")
+theme_type_variation = &"LoginButton"
+text = "Forgot your password?"
+
+[node name="UserButton" type="Button" parent="LoginWindow/wndMain"]
+layout_mode = 0
+offset_left = 584.0
+offset_top = 536.0
+offset_right = 724.0
+offset_bottom = 576.0
+theme = ExtResource("11_56fxm")
+theme_type_variation = &"LoginButton"
+text = "Temporary Login"
+
 [connection signal="button_down" from="Windows/wndConta/MarginContainer/Content/DownloadPanel/toggleAcrylic" to="Windows/wndConta/MarginContainer/Content/DownloadPanel/toggleAcrylic" method="_on_button_down"]
 [connection signal="value_changed" from="Windows/wndConta/MarginContainer/Content/DownloadPanel/HSlider" to="Windows/wndConta/MarginContainer/Content/DownloadPanel/HSlider" method="_on_value_changed"]
+[connection signal="tab_changed" from="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer" to="Windows/wndAdmin" method="_on_tab_container_tab_changed"]
+[connection signal="item_selected" from="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TypeSelector" to="Windows/wndAdmin" method="_on_type_selector_item_selected"]
+[connection signal="button_down" from="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/AddAccountButton" to="Windows/wndAdmin" method="_on_add_account_button_button_down"]
+[connection signal="button_down" from="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/DeletionButton" to="Windows/wndAdmin" method="_on_deletion_button_button_down"]
 [connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnInstall" to="." method="_on_btn_install_button_down"]
 [connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnPacotes" to="." method="_on_btn_pacotes_button_down"]
 [connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnConta" to="." method="_on_btn_conta_button_down"]
 [connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnSair" to="." method="_on_btn_sair_button_down"]
+[connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnAdmin" to="." method="_on_btn_admin_button_down"]
+[connection signal="button_down" from="LoginWindow/wndMain/LoginButton" to="." method="_on_login_button_button_down"]
+[connection signal="button_down" from="LoginWindow/wndMain/CancelButton" to="." method="_on_cancel_button_button_down"]
+[connection signal="button_down" from="LoginWindow/wndMain/UserButton" to="." method="_on_user_button_button_down"]

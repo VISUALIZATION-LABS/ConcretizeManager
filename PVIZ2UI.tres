@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dmtkb58tn0mco"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://dmtkb58tn0mco"]
 
 [ext_resource type="FontFile" uid="uid://7w3wryjj81mc" path="res://Art/Fonts/Inter/Inter-SemiBold.ttf" id="1_li18f"]
 
@@ -42,6 +42,8 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3bu0i"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vs7t"]
 bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
 
@@ -52,4 +54,11 @@ Button/styles/focus = SubResource("StyleBoxFlat_xs6fo")
 Button/styles/hover = SubResource("StyleBoxFlat_uov3d")
 Button/styles/normal = SubResource("StyleBoxFlat_qvxqi")
 Button/styles/pressed = SubResource("StyleBoxFlat_l5nd0")
+LoginButton/base_type = &"Button"
+LoginButton/colors/font_color = Color(0.321569, 0.87451, 1, 1)
+LoginButton/styles/disabled = SubResource("StyleBoxEmpty_3bu0i")
+LoginButton/styles/focus = SubResource("StyleBoxEmpty_3bu0i")
+LoginButton/styles/hover = SubResource("StyleBoxEmpty_3bu0i")
+LoginButton/styles/normal = SubResource("StyleBoxEmpty_3bu0i")
+LoginButton/styles/pressed = SubResource("StyleBoxEmpty_3bu0i")
 Panel/styles/panel = SubResource("StyleBoxFlat_4vs7t")
