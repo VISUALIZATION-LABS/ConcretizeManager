@@ -7,7 +7,7 @@ var login: String
 var password: String
 
 func _ready() -> void:
-# Hides Everything else so only the LoginWindow Appears
+#  WARNING Hides Everything else so only the LoginWindow Appears
 	$Windows.hide()
 	$Header.hide()
 	# Get all the Accounts from the database
@@ -92,16 +92,6 @@ func _on_login_button_button_down() -> void:
 #Cancel Button wndMain
 func _on_cancel_button_button_down() -> void:
 	get_tree().quit()
-
-#Change window to sign up window
-func _on_sign_up_button_button_down() -> void:
-	$LoginWindow/wndMain.hide()
-	$LoginWindow/wndRegister.show()
-
-#Go back to main login window
-func _on_reg_cancel_button_button_down() -> void:
-	$LoginWindow/wndMain.show()
-	$LoginWindow/wndRegister.hide()
 
 #Login as a Temporary User
 func _on_user_button_button_down() -> void:

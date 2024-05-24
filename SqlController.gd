@@ -15,7 +15,6 @@ func _ready() -> void:
 	#Add Options For TypeSelector
 	%TypeSelector.add_item("Admin", 0)
 	%TypeSelector.add_item("Artist", 1)
-	%TypeSelector.add_item("User", 2)
 
 #Obter dados da tabela e retorna-los sintaxe: "table name", "conditions", "what to get"
 #Using workaround to insert value inside string
@@ -31,6 +30,7 @@ func _output_table(output) -> void:
 		output.text += "Nome de Usuario: " + table_text[i]['username'] + "\n"
 		output.text += "Senha: " + table_text[i]['password'] + "\n"
 		
+
 #Refresh options from account select
 #Obs: First declarition of options in WindowManager.gd
 func _update_account_select() -> void:
@@ -48,7 +48,6 @@ func _on_tab_container_tab_changed(tab) -> void:
 #Limpar as Caixas de Texto todas as vezes que se mudar de aba
 	%OutAdmins.set_text("")
 	%OutArtists.set_text("")
-	%OutUser.set_text("")
 #Read the table according to the tab
 	table_text = _read_table(tab)
 #Output the text to the corresponding tab
@@ -57,31 +56,6 @@ func _on_tab_container_tab_changed(tab) -> void:
 			_output_table(%OutAdmins)
 		1:
 			_output_table(%OutArtists)
-		2:
-			_output_table(%OutUser)
-
-#Registers a user from the register screen
-func _on_register_button_button_down() -> void:
-#Data to be Inserted on the table
-	var data = {
-	"email": "",
-	"username": %RegUsernameBox.text,
-	"password": %RegPasswordBox.text,
-	"type": 2
-	}
-#Inserir os dados na tabela
-	database.insert_row("Accounts", data)
-#Display login screen again
-	%wndRegister.hide()
-	%wndMain.show()
-
-#Detect if the account your creating is a user if so delete email box
-func _on_type_selector_item_selected(index) -> void:
-#If your adding a user hide the email box
-	if index == 2:
-		$MarginContainer/Content/DownloadPanel/Control/UniEmailBox.hide()
-	else:
-		$MarginContainer/Content/DownloadPanel/Control/UniEmailBox.show()
 
 #Delete account according to the Id Selected
 func _on_deletion_button_button_down() -> void:
@@ -99,14 +73,12 @@ func _on_deletion_button_button_down() -> void:
 #Add new account with data input
 func _on_add_account_button_button_down():
 	var info: Dictionary = {
+	"email" = $MarginContainer/Content/DownloadPanel/Control/UniEmailBox.text,
 	"username" = $MarginContainer/Content/DownloadPanel/Control/UniUserBox.text,
 	"password" = $MarginContainer/Content/DownloadPanel/Control/UniPassBox.text,
 	"type" = %TypeSelector.selected
 	}
-	if %TypeSelector.selected != 2:
-		info["email"] = $MarginContainer/Content/DownloadPanel/Control/UniEmailBox.text
-	else:
-		info["email"] = ""
+	#Add in to the table Accounts the info from the boxes
 	database.insert_row("Accounts", info)
 	#Refresh Ids on Account Select
 	_update_account_select()
