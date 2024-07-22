@@ -1,15 +1,16 @@
-[gd_scene load_steps=23 format=3 uid="uid://ouyh71iw5w5o"]
+[gd_scene load_steps=24 format=3 uid="uid://ouyh71iw5w5o"]
 
-[ext_resource type="Script" path="res://WindowManager.gd" id="1_3eng3"]
+[ext_resource type="Script" path="res://Scripts/WindowManager.gd" id="1_3eng3"]
 [ext_resource type="FontFile" uid="uid://7w3wryjj81mc" path="res://Art/Fonts/Inter/Inter-SemiBold.ttf" id="1_3rg3l"]
 [ext_resource type="FontFile" uid="uid://dhiv3473q5bwi" path="res://Art/Fonts/Inter/Inter-Bold.ttf" id="2_j5lki"]
 [ext_resource type="FontFile" uid="uid://cx66tncyfdt0g" path="res://Art/Fonts/Inter/Inter-Regular.ttf" id="3_3r5xi"]
+[ext_resource type="Script" path="res://Scripts/PackageController.gd" id="4_gl7y2"]
 [ext_resource type="FontFile" uid="uid://cjp63h0jocdhr" path="res://Art/Fonts/Inter/Inter-Medium.ttf" id="4_ih4kp"]
 [ext_resource type="Texture2D" uid="uid://4dni6ru1l86v" path="res://logoColorThick.png" id="4_k4ilk"]
 [ext_resource type="Shader" path="res://acrylic.gdshader" id="4_lu04a"]
-[ext_resource type="Script" path="res://toggleAcrylicExample.gd" id="6_ji07w"]
-[ext_resource type="Script" path="res://blurslider.gd" id="7_4fclj"]
-[ext_resource type="Script" path="res://SqlController.gd" id="8_ektlb"]
+[ext_resource type="Script" path="res://Scripts/toggleAcrylicExample.gd" id="6_ji07w"]
+[ext_resource type="Script" path="res://Scripts/blurslider.gd" id="7_4fclj"]
+[ext_resource type="Script" path="res://Scripts/SqlController.gd" id="8_ektlb"]
 [ext_resource type="Theme" uid="uid://dmtkb58tn0mco" path="res://PVIZ2UI.tres" id="11_56fxm"]
 [ext_resource type="Texture2D" uid="uid://c4clcb547eth0" path="res://check-mark.svg" id="12_nmsmf"]
 [ext_resource type="Texture2D" uid="uid://djptjg8johbqh" path="res://cancel-button.svg" id="13_b0atx"]
@@ -70,7 +71,6 @@ grow_vertical = 2
 color = Color(0.0470588, 0.0470588, 0.0470588, 1)
 
 [node name="Windows" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,6 +79,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="wndInstalação" type="Control" parent="Windows"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -102,7 +103,7 @@ theme_override_constants/margin_bottom = 20
 [node name="Content" type="Control" parent="Windows/wndInstalação/MarginContainer"]
 layout_mode = 2
 
-[node name="HSplitContainer" type="HSplitContainer" parent="Windows/wndInstalação/MarginContainer/Content"]
+[node name="PainelContainer" type="HSplitContainer" parent="Windows/wndInstalação/MarginContainer/Content"]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -113,12 +114,12 @@ grow_vertical = 2
 theme_override_constants/separation = 20
 split_offset = 785
 
-[node name="DownloadPanel" type="Panel" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer"]
+[node name="DownloadPanel" type="Panel" parent="Windows/wndInstalação/MarginContainer/Content/PainelContainer"]
 clip_contents = true
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vv41q")
 
-[node name="MarginContainer" type="MarginContainer" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="Windows/wndInstalação/MarginContainer/Content/PainelContainer/DownloadPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -130,10 +131,10 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Control" type="Control" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer"]
+[node name="Control" type="Control" parent="Windows/wndInstalação/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Windows/wndInstalação/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -142,13 +143,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="DownloadHousing" type="Panel" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer"]
+[node name="DownloadHousing" type="Panel" parent="Windows/wndInstalação/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_aw1fj")
 
-[node name="MarginContainer" type="MarginContainer" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing"]
+[node name="MarginContainer" type="MarginContainer" parent="Windows/wndInstalação/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -160,10 +161,10 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Control" type="Control" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing/MarginContainer"]
+[node name="Control" type="Control" parent="Windows/wndInstalação/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing/MarginContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing/MarginContainer/Control"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Windows/wndInstalação/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing/MarginContainer/Control"]
 layout_mode = 1
 offset_right = 185.0
 offset_bottom = 20.0
@@ -173,7 +174,7 @@ bbcode_enabled = true
 text = "[b]POCKETVIZ 2 RELEASE"
 fit_content = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing/MarginContainer/Control"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="Windows/wndInstalação/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing/MarginContainer/Control"]
 layout_mode = 1
 offset_top = 19.0
 offset_right = 185.0
@@ -185,13 +186,13 @@ text = "V1.0.0 | 20.3GB
 21/09/2024"
 fit_content = true
 
-[node name="DownloadHousing2" type="Panel" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer"]
+[node name="DownloadHousing2" type="Panel" parent="Windows/wndInstalação/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_aw1fj")
 
-[node name="MarginContainer" type="MarginContainer" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2"]
+[node name="MarginContainer" type="MarginContainer" parent="Windows/wndInstalação/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -203,10 +204,10 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Control" type="Control" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2/MarginContainer"]
+[node name="Control" type="Control" parent="Windows/wndInstalação/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2/MarginContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2/MarginContainer/Control"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Windows/wndInstalação/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2/MarginContainer/Control"]
 layout_mode = 1
 offset_right = 185.0
 offset_bottom = 20.0
@@ -216,7 +217,7 @@ bbcode_enabled = true
 text = "[b]POCKETVIZ 2 RC5"
 fit_content = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2/MarginContainer/Control"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="Windows/wndInstalação/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2/MarginContainer/Control"]
 layout_mode = 1
 offset_top = 19.0
 offset_right = 185.0
@@ -228,12 +229,11 @@ text = "V1.0.0 | 19.3GB
 21/09/2024"
 fit_content = true
 
-[node name="NewsPanel" type="Panel" parent="Windows/wndInstalação/MarginContainer/Content/HSplitContainer"]
+[node name="NewsPanel" type="Panel" parent="Windows/wndInstalação/MarginContainer/Content/PainelContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vv41q")
 
 [node name="wndPacotes" type="Control" parent="Windows"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -257,7 +257,7 @@ theme_override_constants/margin_bottom = 20
 [node name="Content" type="Control" parent="Windows/wndPacotes/MarginContainer"]
 layout_mode = 2
 
-[node name="HSplitContainer" type="HSplitContainer" parent="Windows/wndPacotes/MarginContainer/Content"]
+[node name="PainelContainer" type="HSplitContainer" parent="Windows/wndPacotes/MarginContainer/Content"]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -268,13 +268,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 split_offset = 785
+script = ExtResource("4_gl7y2")
 
-[node name="DownloadPanel" type="Panel" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer"]
+[node name="DownloadPanel" type="Panel" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer"]
 clip_contents = true
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vv41q")
 
-[node name="MarginContainer" type="MarginContainer" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -286,10 +287,10 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Control" type="Control" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer"]
+[node name="Control" type="Control" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -298,13 +299,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="DownloadHousing" type="Panel" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer"]
+[node name="DownloadHousing1" type="Panel" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_aw1fj")
 
-[node name="MarginContainer" type="MarginContainer" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing"]
+[node name="PackageContainer" type="MarginContainer" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -316,10 +317,10 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Control" type="Control" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing/MarginContainer"]
+[node name="PackageInfo" type="Control" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing1/PackageContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing/MarginContainer/Control"]
+[node name="PackageText" type="RichTextLabel" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing1/PackageContainer/PackageInfo"]
 layout_mode = 1
 offset_right = 185.0
 offset_bottom = 20.0
@@ -329,7 +330,7 @@ bbcode_enabled = true
 text = "[b]MODERN HOUSE PACK"
 fit_content = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing/MarginContainer/Control"]
+[node name="PackageSubText" type="RichTextLabel" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing1/PackageContainer/PackageInfo"]
 layout_mode = 1
 offset_top = 19.0
 offset_right = 185.0
@@ -341,13 +342,17 @@ text = "V1.0.0 | 300GB
 21/09/2024"
 fit_content = true
 
-[node name="DownloadHousing2" type="Panel" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer"]
+[node name="PackageButton" type="Button" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing1/PackageContainer"]
+layout_mode = 2
+flat = true
+
+[node name="DownloadHousing2" type="Panel" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_aw1fj")
 
-[node name="MarginContainer" type="MarginContainer" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2"]
+[node name="PackageContainer" type="MarginContainer" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -359,10 +364,10 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Control" type="Control" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2/MarginContainer"]
+[node name="PackageInfo" type="Control" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2/PackageContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2/MarginContainer/Control"]
+[node name="PackageText" type="RichTextLabel" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2/PackageContainer/PackageInfo"]
 layout_mode = 1
 offset_right = 185.0
 offset_bottom = 20.0
@@ -372,7 +377,7 @@ bbcode_enabled = true
 text = "[b]MADAGA GROUP"
 fit_content = true
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2/MarginContainer/Control"]
+[node name="PackageSubText" type="RichTextLabel" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2/PackageContainer/PackageInfo"]
 layout_mode = 1
 offset_top = 19.0
 offset_right = 185.0
@@ -384,9 +389,38 @@ text = "V1.0.0 | 300TB
 21/09/2024"
 fit_content = true
 
-[node name="NewsPanel" type="Panel" parent="Windows/wndPacotes/MarginContainer/Content/HSplitContainer"]
+[node name="NewsPanel" type="Panel" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vv41q")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/NewsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00325733
+anchor_top = 0.0494297
+anchor_right = 1.00977
+anchor_bottom = 0.642586
+text = "No estágio eu realizei diversas montagens e preparações de computadores para clientes do
+Governo e de empresas privadas. As montagens realizadas abrangem diversos tipos de máqui-
+nas, como computadores desktop, laptops e computadores all-in-one. Dentro dessas ordens de
+montagem foram realizadas trocas de componentes internos (no caso de laptops e all-in-ones)
+como SSDs e NVMEs, e a configuração do sistema operacional Microsoft Windows 10/11 com a
+suite completa do Microsoft 365.
+Além disso, o meu trabalho envolveu a manutenção de máquinas de usuários finais trazidas
+para o meu local de trabalho. Essas ordens de serviço envolveram debugging para encontrar e
+resolver problemas nas máquinas e também a limpagem completa dos computadores.
+Por fim, também realizei a contagem de itens em estoque e o lançamento de notas fiscais na
+base de dados da empresa para a documentação legal de gastos e ganhos monetários."
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/NewsPanel"]
+layout_mode = 0
+anchor_left = 0.127036
+anchor_top = 0.764259
+anchor_right = 0.85342
+anchor_bottom = 0.95057
+text = "Download"
+metadata/_edit_use_anchors_ = true
 
 [node name="wndConta" type="Control" parent="Windows"]
 visible = false
@@ -724,7 +758,6 @@ theme = ExtResource("11_56fxm")
 text = "Delete"
 
 [node name="Header" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -933,6 +966,7 @@ theme = ExtResource("11_56fxm")
 theme_type_variation = &"LoginButton"
 text = "Temporary Login"
 
+[connection signal="button_down" from="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing1/PackageContainer/PackageButton" to="Windows/wndPacotes/MarginContainer/Content/PainelContainer" method="_on_package_button_button_down"]
 [connection signal="button_down" from="Windows/wndConta/MarginContainer/Content/DownloadPanel/toggleAcrylic" to="Windows/wndConta/MarginContainer/Content/DownloadPanel/toggleAcrylic" method="_on_button_down"]
 [connection signal="value_changed" from="Windows/wndConta/MarginContainer/Content/DownloadPanel/HSlider" to="Windows/wndConta/MarginContainer/Content/DownloadPanel/HSlider" method="_on_value_changed"]
 [connection signal="tab_changed" from="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer" to="Windows/wndAdmin" method="_on_tab_container_tab_changed"]
