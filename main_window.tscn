@@ -1,13 +1,16 @@
-[gd_scene load_steps=30 format=3 uid="uid://ouyh71iw5w5o"]
+[gd_scene load_steps=36 format=3 uid="uid://ouyh71iw5w5o"]
 
 [ext_resource type="Script" path="res://Scripts/WindowManager.gd" id="1_3eng3"]
 [ext_resource type="FontFile" uid="uid://7w3wryjj81mc" path="res://Art/Fonts/Inter/Inter-SemiBold.ttf" id="1_3rg3l"]
+[ext_resource type="StyleBox" uid="uid://k1qowh0tjgch" path="res://HousingPanel.tres" id="2_3s1fb"]
 [ext_resource type="FontFile" uid="uid://dhiv3473q5bwi" path="res://Art/Fonts/Inter/Inter-Bold.ttf" id="2_j5lki"]
 [ext_resource type="FontFile" uid="uid://cx66tncyfdt0g" path="res://Art/Fonts/Inter/Inter-Regular.ttf" id="3_3r5xi"]
+[ext_resource type="Texture2D" uid="uid://cjeb175kpbx4" path="res://vuesax/bulk/box-addInverted.png" id="4_dhdmp"]
 [ext_resource type="Script" path="res://Scripts/PackageController.gd" id="4_gl7y2"]
 [ext_resource type="FontFile" uid="uid://cjp63h0jocdhr" path="res://Art/Fonts/Inter/Inter-Medium.ttf" id="4_ih4kp"]
 [ext_resource type="Texture2D" uid="uid://4dni6ru1l86v" path="res://logoColorThick.png" id="4_k4ilk"]
 [ext_resource type="Shader" path="res://acrylic.gdshader" id="4_lu04a"]
+[ext_resource type="Texture2D" uid="uid://c15ig52jksbak" path="res://vuesax/bulk/box-searchInverted.png" id="4_vdwpe"]
 [ext_resource type="Script" path="res://Scripts/toggleAcrylicExample.gd" id="6_ji07w"]
 [ext_resource type="Script" path="res://Scripts/blurslider.gd" id="7_4fclj"]
 [ext_resource type="Script" path="res://Scripts/SqlController.gd" id="8_ektlb"]
@@ -21,15 +24,29 @@
 [ext_resource type="Texture2D" uid="uid://d38djksf7y0s" path="res://vuesax/bulk/profile-2userInverted.png" id="16_t4w5h"]
 [ext_resource type="Texture2D" uid="uid://cays2wob6q2ph" path="res://vuesax/bulk/close-squareInverted.png" id="17_y7rt3"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxbg2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n6f0s"]
+bg_color = Color(0.505882, 0.505882, 0.505882, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rin7e"]
+bg_color = Color(0.133333, 0.133333, 0.133333, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo11t"]
+bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.783523, 0.783523, 0.783523, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vv41q"]
 bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aw1fj"]
-bg_color = Color(0.0901961, 0.0901961, 0.0901961, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -48,15 +65,15 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_udxyw"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0joeq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wdapk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1e3r"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a1qxb"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wdapk"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0joeq"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_udxyw"]
 
 [node name="MainWindow" type="Control"]
 layout_mode = 3
@@ -84,6 +101,287 @@ anchor_bottom = 1.0
 offset_left = 256.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="wndProjetos" type="Control" parent="Windows"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Windows/wndProjetos"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 0.987654
+metadata/_edit_use_anchors_ = true
+
+[node name="Content" type="Control" parent="Windows/wndProjetos/MarginContainer"]
+layout_mode = 2
+
+[node name="ProjectsPanel" type="Panel" parent="Windows/wndProjetos/MarginContainer/Content"]
+layout_mode = 0
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 1.0125
+theme_override_styles/panel = SubResource("StyleBoxFlat_xxbg2")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -16
+metadata/_edit_use_anchors_ = true
+
+[node name="ProjectHousing" type="Panel" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xxbg2")
+
+[node name="ProjectInfo" type="Control" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing"]
+layout_mode = 2
+anchors_preset = 0
+offset_right = 384.0
+offset_bottom = 70.0
+
+[node name="ProjectTitle" type="RichTextLabel" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing/ProjectInfo"]
+layout_mode = 2
+anchor_left = 0.018
+anchor_top = 0.229
+anchor_right = 0.018
+anchor_bottom = 0.229
+offset_left = 10.088
+offset_top = -0.0300007
+offset_right = 377.088
+offset_bottom = 23.97
+theme = ExtResource("11_56fxm")
+theme_override_colors/font_outline_color = Color(0.505882, 0.505882, 0.505882, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 16
+text = "My 3D Project "
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="FileLocation" type="RichTextLabel" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing/ProjectInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.018
+anchor_top = 0.5
+anchor_right = 0.018
+anchor_bottom = 0.5
+offset_left = 10.088
+offset_top = -1.0
+offset_right = 377.088
+offset_bottom = 23.0
+theme_override_colors/default_color = Color(0.505882, 0.505882, 0.505882, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 14
+text = "/CAFA/Concretize/MeuPrimeiroProjeto"
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="Controls" type="Control" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing"]
+anchors_preset = 0
+offset_left = 384.0
+offset_right = 896.0
+offset_bottom = 64.0
+
+[node name="ProjectHousing2" type="Panel" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xxbg2")
+
+[node name="ProjectInfo" type="Control" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing2"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 384.0
+offset_bottom = 70.0
+
+[node name="ProjectTitle" type="RichTextLabel" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing2/ProjectInfo"]
+layout_mode = 2
+anchor_left = 0.018
+anchor_top = 0.229
+anchor_right = 0.018
+anchor_bottom = 0.229
+offset_left = 10.088
+offset_top = -0.0300007
+offset_right = 377.088
+offset_bottom = 23.97
+theme = ExtResource("11_56fxm")
+theme_override_colors/font_outline_color = Color(0.505882, 0.505882, 0.505882, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 16
+text = "Hi Felipe Sena opengl c++ 2029"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="FileLocation" type="RichTextLabel" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing2/ProjectInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.018
+anchor_top = 0.5
+anchor_right = 0.018
+anchor_bottom = 0.5
+offset_left = 10.088
+offset_top = -1.0
+offset_right = 377.088
+offset_bottom = 23.0
+theme_override_colors/default_color = Color(0.505882, 0.505882, 0.505882, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 14
+text = "C:/Users/CAFA/Concretize/MeuPrimeiroProjeto"
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="Controls" type="Control" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing2"]
+layout_mode = 1
+anchor_bottom = 0.033
+offset_left = 384.0
+offset_top = 10.0
+offset_right = 896.0
+offset_bottom = 71.69
+
+[node name="ProjectHousing3" type="Panel" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xxbg2")
+
+[node name="ProjectName" type="Control" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing3"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 384.0
+offset_bottom = 70.0
+
+[node name="ProjectTitle" type="RichTextLabel" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing3/ProjectName"]
+layout_mode = 2
+anchor_left = 0.018
+anchor_top = 0.229
+anchor_right = 0.018
+anchor_bottom = 0.229
+offset_left = 10.088
+offset_top = -0.0300007
+offset_right = 377.088
+offset_bottom = 23.97
+theme = ExtResource("11_56fxm")
+theme_override_colors/font_outline_color = Color(0.505882, 0.505882, 0.505882, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 16
+text = "012345678901234567890123456789012345"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="FileLocation" type="RichTextLabel" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing3/ProjectName"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.018
+anchor_top = 0.5
+anchor_right = 0.018
+anchor_bottom = 0.5
+offset_left = 10.088
+offset_top = -1.0
+offset_right = 377.088
+offset_bottom = 23.0
+theme_override_colors/default_color = Color(0.505882, 0.505882, 0.505882, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/normal_font_size = 14
+text = "Fun Fact!! project title is only 36 characters long!!!!!!!!!!!"
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="Controls" type="Control" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing3"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 384.0
+offset_top = 4.0
+offset_right = 896.0
+offset_bottom = 68.0
+
+[node name="HeaderPanel" type="Panel" parent="Windows/wndProjetos/MarginContainer/Content"]
+layout_mode = 0
+offset_right = 896.0
+offset_bottom = 192.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n6f0s")
+
+[node name="SortPanel" type="Panel" parent="Windows/wndProjetos/MarginContainer/Content/HeaderPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.792
+anchor_bottom = 0.792
+offset_top = -0.0640106
+offset_right = 896.0
+offset_bottom = 39.936
+theme_override_styles/panel = SubResource("StyleBoxFlat_rin7e")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Windows/wndProjetos/MarginContainer/Content/HeaderPanel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 184.0
+offset_bottom = 88.0
+theme = ExtResource("11_56fxm")
+theme_override_colors/font_outline_color = Color(0.505882, 0.505882, 0.505882, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 38
+text = "Projetos"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="btnOpen" type="Button" parent="Windows/wndProjetos/MarginContainer/Content/HeaderPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.571
+anchor_top = 0.25
+anchor_right = 0.571
+anchor_bottom = 0.25
+offset_left = 0.383972
+offset_right = 160.384
+offset_bottom = 48.0
+theme = ExtResource("11_56fxm")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.133333, 0.133333, 0.133333, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_oo11t")
+text = "Abrir"
+
+[node name="Box-searchInverted" type="Sprite2D" parent="Windows/wndProjetos/MarginContainer/Content/HeaderPanel/btnOpen"]
+position = Vector2(32.0001, 24)
+texture = ExtResource("4_vdwpe")
+
+[node name="btnNew" type="Button" parent="Windows/wndProjetos/MarginContainer/Content/HeaderPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.786
+anchor_top = 0.25
+anchor_right = 0.786
+anchor_bottom = 0.25
+offset_left = -0.255981
+offset_right = 159.744
+offset_bottom = 48.0
+theme = ExtResource("11_56fxm")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.133333, 0.133333, 0.133333, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_oo11t")
+text = "Novo"
+
+[node name="Box-addInverted" type="Sprite2D" parent="Windows/wndProjetos/MarginContainer/Content/HeaderPanel/btnNew"]
+position = Vector2(32, 24)
+texture = ExtResource("4_dhdmp")
 
 [node name="wndInstalação" type="Control" parent="Windows"]
 visible = false
@@ -153,7 +451,7 @@ theme_override_constants/separation = 10
 clip_contents = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_aw1fj")
+theme_override_styles/panel = ExtResource("2_3s1fb")
 
 [node name="MarginContainer" type="MarginContainer" parent="Windows/wndInstalação/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing"]
 layout_mode = 1
@@ -196,7 +494,7 @@ fit_content = true
 clip_contents = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_aw1fj")
+theme_override_styles/panel = ExtResource("2_3s1fb")
 
 [node name="MarginContainer" type="MarginContainer" parent="Windows/wndInstalação/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2"]
 layout_mode = 1
@@ -317,7 +615,7 @@ theme_override_constants/separation = 10
 clip_contents = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_aw1fj")
+theme_override_styles/panel = ExtResource("2_3s1fb")
 
 [node name="PackageContainer" type="MarginContainer" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing1"]
 layout_mode = 1
@@ -364,7 +662,7 @@ flat = true
 clip_contents = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_aw1fj")
+theme_override_styles/panel = ExtResource("2_3s1fb")
 
 [node name="PackageContainer" type="MarginContainer" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2"]
 layout_mode = 1
@@ -563,6 +861,7 @@ value = 35.0
 script = ExtResource("7_4fclj")
 
 [node name="wndAdmin" type="Control" parent="Windows"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -616,12 +915,16 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -4.0
+offset_top = 8.0
+offset_right = 1.01929
+offset_bottom = 0.00292969
 grow_horizontal = 2
 grow_vertical = 2
+current_tab = 0
 
 [node name="Admin" type="Control" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer"]
 layout_mode = 2
+metadata/_tab_index = 0
 
 [node name="OutAdmins" type="TextEdit" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer/Admin"]
 unique_name_in_owner = true
@@ -640,6 +943,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Artista" type="Control" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="OutArtists" type="TextEdit" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TabContainer/Artista"]
 unique_name_in_owner = true
@@ -843,11 +1147,11 @@ layout_mode = 2
 theme_override_constants/h_separation = 7
 theme_override_fonts/font = ExtResource("1_3rg3l")
 theme_override_font_sizes/font_size = 23
-theme_override_styles/normal = SubResource("StyleBoxEmpty_udxyw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_p1e3r")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_a1qxb")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_udxyw")
 text = "PROJETOS"
 icon = ExtResource("12_1hj4n")
 alignment = 0
@@ -857,11 +1161,11 @@ layout_mode = 2
 theme_override_constants/h_separation = 7
 theme_override_fonts/font = ExtResource("1_3rg3l")
 theme_override_font_sizes/font_size = 23
-theme_override_styles/normal = SubResource("StyleBoxEmpty_udxyw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_p1e3r")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_a1qxb")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_udxyw")
 text = "INSTALAÇÃO"
 icon = ExtResource("13_ahkik")
 alignment = 0
@@ -871,11 +1175,11 @@ layout_mode = 2
 theme_override_constants/h_separation = 7
 theme_override_fonts/font = ExtResource("1_3rg3l")
 theme_override_font_sizes/font_size = 23
-theme_override_styles/normal = SubResource("StyleBoxEmpty_udxyw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_p1e3r")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_a1qxb")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_udxyw")
 text = "PACOTES"
 icon = ExtResource("14_q2yn0")
 alignment = 0
@@ -885,11 +1189,11 @@ layout_mode = 2
 theme_override_constants/h_separation = 7
 theme_override_fonts/font = ExtResource("1_3rg3l")
 theme_override_font_sizes/font_size = 23
-theme_override_styles/normal = SubResource("StyleBoxEmpty_udxyw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_p1e3r")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_a1qxb")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_udxyw")
 text = "CONTA"
 icon = ExtResource("15_jrsj7")
 alignment = 0
@@ -899,11 +1203,11 @@ layout_mode = 2
 theme_override_constants/h_separation = 7
 theme_override_fonts/font = ExtResource("1_3rg3l")
 theme_override_font_sizes/font_size = 23
-theme_override_styles/normal = SubResource("StyleBoxEmpty_udxyw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_p1e3r")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_a1qxb")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_udxyw")
 text = "ADMIN"
 icon = ExtResource("16_t4w5h")
 alignment = 0
@@ -913,11 +1217,11 @@ layout_mode = 2
 theme_override_constants/h_separation = 7
 theme_override_fonts/font = ExtResource("1_3rg3l")
 theme_override_font_sizes/font_size = 23
-theme_override_styles/normal = SubResource("StyleBoxEmpty_udxyw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_p1e3r")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_a1qxb")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_wdapk")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_0joeq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_udxyw")
 text = "EXIT"
 icon = ExtResource("17_y7rt3")
 alignment = 0
@@ -942,7 +1246,6 @@ text = "  CONCRETIZE
 fit_content = true
 
 [node name="LoginWindow" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchor_right = 1.0
 anchor_bottom = 0.994
@@ -977,7 +1280,7 @@ offset_left = 344.0
 offset_top = 272.0
 offset_right = 792.0
 offset_bottom = 320.0
-placeholder_text = "Username or Email"
+placeholder_text = "Nome de Usuario ou Email"
 
 [node name="PasswordBox" type="TextEdit" parent="LoginWindow/wndMain"]
 layout_mode = 0
@@ -985,7 +1288,7 @@ offset_left = 344.0
 offset_top = 344.0
 offset_right = 792.0
 offset_bottom = 392.0
-placeholder_text = "Password"
+placeholder_text = "Senha"
 
 [node name="LoginButton" type="Button" parent="LoginWindow/wndMain"]
 layout_mode = 0
@@ -993,9 +1296,10 @@ offset_left = 352.0
 offset_top = 432.0
 offset_right = 539.0
 offset_bottom = 512.0
+theme = ExtResource("11_56fxm")
 theme_type_variation = &"FlatButton"
 theme_override_font_sizes/font_size = 30
-text = "Login"
+text = "Entrar"
 icon = ExtResource("12_nmsmf")
 expand_icon = true
 
@@ -1005,9 +1309,10 @@ offset_left = 584.0
 offset_top = 432.0
 offset_right = 777.0
 offset_bottom = 512.0
+theme = ExtResource("11_56fxm")
 theme_type_variation = &"FlatButton"
 theme_override_font_sizes/font_size = 30
-text = "Cancel"
+text = "Cancelar"
 icon = ExtResource("13_b0atx")
 expand_icon = true
 
@@ -1017,7 +1322,7 @@ offset_left = 400.0
 offset_top = 544.0
 offset_right = 592.0
 offset_bottom = 567.0
-text = "Don't have an account?"
+text = "Acesssar como Usuario:"
 
 [node name="ForgetButton" type="Button" parent="LoginWindow/wndMain"]
 layout_mode = 0
@@ -1027,17 +1332,18 @@ offset_right = 672.0
 offset_bottom = 624.0
 theme = ExtResource("11_56fxm")
 theme_type_variation = &"LoginButton"
-text = "Forgot your password?"
+text = "Esqueceu sua Senha?"
 
 [node name="UserButton" type="Button" parent="LoginWindow/wndMain"]
 layout_mode = 0
-offset_left = 584.0
+offset_left = 592.0
 offset_top = 536.0
-offset_right = 724.0
+offset_right = 732.0
 offset_bottom = 576.0
 theme = ExtResource("11_56fxm")
 theme_type_variation = &"LoginButton"
-text = "Temporary Login"
+text = "Login Temporario"
+flat = true
 
 [connection signal="button_down" from="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing1/PackageContainer/PackageButton" to="Windows/wndPacotes/MarginContainer/Content/PainelContainer" method="_on_package_button_button_down"]
 [connection signal="button_down" from="Windows/wndConta/MarginContainer/Content/DownloadPanel/toggleAcrylic" to="Windows/wndConta/MarginContainer/Content/DownloadPanel/toggleAcrylic" method="_on_button_down"]
