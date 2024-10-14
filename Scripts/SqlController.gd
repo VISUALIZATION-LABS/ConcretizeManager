@@ -4,10 +4,8 @@ var table_text: Array
 var database: SQLite
 
 func _ready() -> void:
-#Inciciação da Tabela e path da tabela
-	database = SQLite.new()
-	database.path="res://data.db"
-	database.open_db()
+#Inciciação da Tabela e path da tabela estão no Arquivo de AutoLoad
+	database = AutoLoad.database
 #Dados da Tablela = id, email, username, password, type
 #Inserir dados da tabela quando a pagina admin é inciada pela primeira vez
 	table_text = _read_table(0)
@@ -84,3 +82,4 @@ func _on_add_account_button_button_down():
 	_update_account_select()
 	#Refresh Current Tab
 	_on_tab_container_tab_changed(%TabContainer.current_tab)
+	

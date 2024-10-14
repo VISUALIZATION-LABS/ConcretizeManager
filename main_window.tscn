@@ -1,12 +1,12 @@
-[gd_scene load_steps=36 format=3 uid="uid://ouyh71iw5w5o"]
+[gd_scene load_steps=37 format=3 uid="uid://ouyh71iw5w5o"]
 
 [ext_resource type="Script" path="res://Scripts/WindowManager.gd" id="1_3eng3"]
 [ext_resource type="FontFile" uid="uid://7w3wryjj81mc" path="res://Art/Fonts/Inter/Inter-SemiBold.ttf" id="1_3rg3l"]
 [ext_resource type="StyleBox" uid="uid://k1qowh0tjgch" path="res://HousingPanel.tres" id="2_3s1fb"]
+[ext_resource type="Script" path="res://ProjectController.gd" id="2_6ag5y"]
 [ext_resource type="FontFile" uid="uid://dhiv3473q5bwi" path="res://Art/Fonts/Inter/Inter-Bold.ttf" id="2_j5lki"]
 [ext_resource type="FontFile" uid="uid://cx66tncyfdt0g" path="res://Art/Fonts/Inter/Inter-Regular.ttf" id="3_3r5xi"]
 [ext_resource type="Texture2D" uid="uid://cjeb175kpbx4" path="res://vuesax/bulk/box-addInverted.png" id="4_dhdmp"]
-[ext_resource type="Script" path="res://Scripts/PackageController.gd" id="4_gl7y2"]
 [ext_resource type="FontFile" uid="uid://cjp63h0jocdhr" path="res://Art/Fonts/Inter/Inter-Medium.ttf" id="4_ih4kp"]
 [ext_resource type="Texture2D" uid="uid://4dni6ru1l86v" path="res://logoColorThick.png" id="4_k4ilk"]
 [ext_resource type="Shader" path="res://acrylic.gdshader" id="4_lu04a"]
@@ -51,6 +51,24 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+
+[sub_resource type="GDScript" id="GDScript_jo70y"]
+script/source = "extends Node
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_package_button_button_down():
+	pass # Replace with function body.
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fefef"]
 shader = ExtResource("4_lu04a")
@@ -109,6 +127,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_6ag5y")
 
 [node name="MarginContainer" type="MarginContainer" parent="Windows/wndProjetos"]
 layout_mode = 0
@@ -138,9 +157,11 @@ theme_override_constants/separation = -16
 metadata/_edit_use_anchors_ = true
 
 [node name="ProjectHousing" type="Panel" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer"]
+visible = false
 clip_contents = true
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
+tooltip_text = "0"
 theme_override_styles/panel = SubResource("StyleBoxFlat_xxbg2")
 
 [node name="ProjectInfo" type="Control" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing"]
@@ -163,7 +184,7 @@ theme = ExtResource("11_56fxm")
 theme_override_colors/font_outline_color = Color(0.505882, 0.505882, 0.505882, 1)
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/normal_font_size = 16
-text = "My 3D Project "
+text = "Meu Projeto 3D"
 scroll_active = false
 shortcut_keys_enabled = false
 
@@ -186,6 +207,12 @@ text = "/CAFA/Concretize/MeuPrimeiroProjeto"
 scroll_active = false
 autowrap_mode = 0
 shortcut_keys_enabled = false
+
+[node name="ProjectBtn" type="Button" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing"]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 56.0
+flat = true
 
 [node name="Controls" type="Control" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing"]
 anchors_preset = 0
@@ -219,7 +246,7 @@ theme = ExtResource("11_56fxm")
 theme_override_colors/font_outline_color = Color(0.505882, 0.505882, 0.505882, 1)
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/normal_font_size = 16
-text = "Hi Felipe Sena opengl c++ 2029"
+text = "Felipe Sena opengl c++ 2029"
 scroll_active = false
 shortcut_keys_enabled = false
 
@@ -243,6 +270,13 @@ scroll_active = false
 autowrap_mode = 0
 shortcut_keys_enabled = false
 
+[node name="ProjectBtn2" type="Button" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing2"]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 384.0
+offset_bottom = 58.0
+flat = true
+
 [node name="Controls" type="Control" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing2"]
 layout_mode = 1
 anchor_bottom = 0.033
@@ -250,64 +284,6 @@ offset_left = 384.0
 offset_top = 10.0
 offset_right = 896.0
 offset_bottom = 71.69
-
-[node name="ProjectHousing3" type="Panel" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_xxbg2")
-
-[node name="ProjectName" type="Control" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing3"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 384.0
-offset_bottom = 70.0
-
-[node name="ProjectTitle" type="RichTextLabel" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing3/ProjectName"]
-layout_mode = 2
-anchor_left = 0.018
-anchor_top = 0.229
-anchor_right = 0.018
-anchor_bottom = 0.229
-offset_left = 10.088
-offset_top = -0.0300007
-offset_right = 377.088
-offset_bottom = 23.97
-theme = ExtResource("11_56fxm")
-theme_override_colors/font_outline_color = Color(0.505882, 0.505882, 0.505882, 1)
-theme_override_constants/outline_size = 1
-theme_override_font_sizes/normal_font_size = 16
-text = "012345678901234567890123456789012345"
-scroll_active = false
-shortcut_keys_enabled = false
-
-[node name="FileLocation" type="RichTextLabel" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing3/ProjectName"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.018
-anchor_top = 0.5
-anchor_right = 0.018
-anchor_bottom = 0.5
-offset_left = 10.088
-offset_top = -1.0
-offset_right = 377.088
-offset_bottom = 23.0
-theme_override_colors/default_color = Color(0.505882, 0.505882, 0.505882, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 1
-theme_override_font_sizes/normal_font_size = 14
-text = "Fun Fact!! project title is only 36 characters long!!!!!!!!!!!"
-scroll_active = false
-autowrap_mode = 0
-shortcut_keys_enabled = false
-
-[node name="Controls" type="Control" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing3"]
-layout_mode = 1
-anchors_preset = 0
-offset_left = 384.0
-offset_top = 4.0
-offset_right = 896.0
-offset_bottom = 68.0
 
 [node name="HeaderPanel" type="Panel" parent="Windows/wndProjetos/MarginContainer/Content"]
 layout_mode = 0
@@ -573,7 +549,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 split_offset = 300
-script = ExtResource("4_gl7y2")
+script = SubResource("GDScript_jo70y")
 
 [node name="DownloadPanel" type="Panel" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer"]
 clip_contents = true
@@ -1246,6 +1222,7 @@ text = "  CONCRETIZE
 fit_content = true
 
 [node name="LoginWindow" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchor_right = 1.0
 anchor_bottom = 0.994
@@ -1345,6 +1322,7 @@ theme_type_variation = &"LoginButton"
 text = "Login Temporario"
 flat = true
 
+[connection signal="button_down" from="Windows/wndProjetos/MarginContainer/Content/HeaderPanel/btnNew" to="Windows/wndProjetos" method="_on_btn_new_button_down"]
 [connection signal="button_down" from="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing1/PackageContainer/PackageButton" to="Windows/wndPacotes/MarginContainer/Content/PainelContainer" method="_on_package_button_button_down"]
 [connection signal="button_down" from="Windows/wndConta/MarginContainer/Content/DownloadPanel/toggleAcrylic" to="Windows/wndConta/MarginContainer/Content/DownloadPanel/toggleAcrylic" method="_on_button_down"]
 [connection signal="value_changed" from="Windows/wndConta/MarginContainer/Content/DownloadPanel/HSlider" to="Windows/wndConta/MarginContainer/Content/DownloadPanel/HSlider" method="_on_value_changed"]
