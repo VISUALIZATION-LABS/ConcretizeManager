@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh60aw5he7uh8"]
+
+[ext_resource type="Script" path="res://Scripts/PopupWindow.gd" id="1_qxesx"]
+[ext_resource type="Texture2D" uid="uid://c15ig52jksbak" path="res://vuesax/bulk/box-searchInverted.png" id="2_tatsr"]
+
+[node name="Window" type="Window"]
+auto_translate_mode = 1
+title = "Configurações do Projeto"
+initial_position = 4
+size = Vector2i(500, 200)
+script = ExtResource("1_qxesx")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 203.0
+offset_bottom = 33.0
+text = "Insira o Nome do Projeto"
+
+[node name="ProjectName" type="TextEdit" parent="."]
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 468.0
+offset_bottom = 88.0
+placeholder_text = "Nome do Projeto"
+
+[node name="ProjectPath" type="TextEdit" parent="."]
+offset_left = 20.0
+offset_top = 90.0
+offset_right = 430.0
+offset_bottom = 125.0
+placeholder_text = "Localização do Projeto"
+
+[node name="DialogButton" type="Button" parent="."]
+offset_left = 435.0
+offset_top = 90.0
+offset_right = 467.0
+offset_bottom = 122.0
+icon = ExtResource("2_tatsr")
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Escolha o Local"
+initial_position = 4
+size = Vector2i(600, 400)
+ok_button_text = "Select Current Folder"
+cancel_button_text = "Cancelar"
+file_mode = 2
+access = 2
+root_subfolder = "user://"
+
+[node name="CriarButton" type="Button" parent="."]
+offset_left = 33.0
+offset_top = 133.0
+offset_right = 133.0
+offset_bottom = 183.0
+text = "Criar"
+
+[node name="CancelarButton" type="Button" parent="."]
+offset_left = 333.0
+offset_top = 133.0
+offset_right = 433.0
+offset_bottom = 183.0
+text = "Cancelar"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="button_down" from="DialogButton" to="." method="_on_dialog_button_button_down"]
+[connection signal="button_down" from="CriarButton" to="." method="_on_criar_button_button_down"]
+[connection signal="button_down" from="CancelarButton" to="." method="_on_cancelar_button_button_down"]

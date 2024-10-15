@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ouyh71iw5w5o"]
+[gd_scene load_steps=39 format=3 uid="uid://ouyh71iw5w5o"]
 
 [ext_resource type="Script" path="res://Scripts/WindowManager.gd" id="1_3eng3"]
 [ext_resource type="FontFile" uid="uid://7w3wryjj81mc" path="res://Art/Fonts/Inter/Inter-SemiBold.ttf" id="1_3rg3l"]
@@ -11,8 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://4dni6ru1l86v" path="res://logoColorThick.png" id="4_k4ilk"]
 [ext_resource type="Shader" path="res://acrylic.gdshader" id="4_lu04a"]
 [ext_resource type="Texture2D" uid="uid://c15ig52jksbak" path="res://vuesax/bulk/box-searchInverted.png" id="4_vdwpe"]
+[ext_resource type="PackedScene" uid="uid://bh60aw5he7uh8" path="res://newprojectpopup.tscn" id="6_erf75"]
 [ext_resource type="Script" path="res://Scripts/toggleAcrylicExample.gd" id="6_ji07w"]
 [ext_resource type="Script" path="res://Scripts/blurslider.gd" id="7_4fclj"]
+[ext_resource type="Script" path="res://Scripts/PopupWindow.gd" id="7_dpoyf"]
 [ext_resource type="Script" path="res://Scripts/SqlController.gd" id="8_ektlb"]
 [ext_resource type="Theme" uid="uid://dmtkb58tn0mco" path="res://PVIZ2UI.tres" id="11_56fxm"]
 [ext_resource type="Texture2D" uid="uid://brwipusnfb5qx" path="res://vuesax/bulk/boxInverted.png" id="12_1hj4n"]
@@ -220,71 +222,6 @@ offset_left = 384.0
 offset_right = 896.0
 offset_bottom = 64.0
 
-[node name="ProjectHousing2" type="Panel" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer"]
-clip_contents = true
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_xxbg2")
-
-[node name="ProjectInfo" type="Control" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing2"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 384.0
-offset_bottom = 70.0
-
-[node name="ProjectTitle" type="RichTextLabel" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing2/ProjectInfo"]
-layout_mode = 2
-anchor_left = 0.018
-anchor_top = 0.229
-anchor_right = 0.018
-anchor_bottom = 0.229
-offset_left = 10.088
-offset_top = -0.0300007
-offset_right = 377.088
-offset_bottom = 23.97
-theme = ExtResource("11_56fxm")
-theme_override_colors/font_outline_color = Color(0.505882, 0.505882, 0.505882, 1)
-theme_override_constants/outline_size = 1
-theme_override_font_sizes/normal_font_size = 16
-text = "Felipe Sena opengl c++ 2029"
-scroll_active = false
-shortcut_keys_enabled = false
-
-[node name="FileLocation" type="RichTextLabel" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing2/ProjectInfo"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.018
-anchor_top = 0.5
-anchor_right = 0.018
-anchor_bottom = 0.5
-offset_left = 10.088
-offset_top = -1.0
-offset_right = 377.088
-offset_bottom = 23.0
-theme_override_colors/default_color = Color(0.505882, 0.505882, 0.505882, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 1
-theme_override_font_sizes/normal_font_size = 14
-text = "C:/Users/CAFA/Concretize/MeuPrimeiroProjeto"
-scroll_active = false
-autowrap_mode = 0
-shortcut_keys_enabled = false
-
-[node name="ProjectBtn2" type="Button" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing2"]
-layout_mode = 0
-offset_top = 10.0
-offset_right = 384.0
-offset_bottom = 58.0
-flat = true
-
-[node name="Controls" type="Control" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing2"]
-layout_mode = 1
-anchor_bottom = 0.033
-offset_left = 384.0
-offset_top = 10.0
-offset_right = 896.0
-offset_bottom = 71.69
-
 [node name="HeaderPanel" type="Panel" parent="Windows/wndProjetos/MarginContainer/Content"]
 layout_mode = 0
 offset_right = 896.0
@@ -358,6 +295,10 @@ text = "Novo"
 [node name="Box-addInverted" type="Sprite2D" parent="Windows/wndProjetos/MarginContainer/Content/HeaderPanel/btnNew"]
 position = Vector2(32, 24)
 texture = ExtResource("4_dhdmp")
+
+[node name="Window" parent="Windows/wndProjetos/MarginContainer/Content/HeaderPanel" instance=ExtResource("6_erf75")]
+visible = false
+script = ExtResource("7_dpoyf")
 
 [node name="wndInstalação" type="Control" parent="Windows"]
 visible = false

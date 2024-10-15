@@ -5,25 +5,26 @@ var gridsystem: VBoxContainer
 var database: SQLite
 var table_text: Array
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+#Funcionalidade de Acesso da Base de dados na aba projeto
 	database = AutoLoad.database
 	table_text = database.select_rows("ProjectInfo", "id NOT NULL", ["*"])
 	print(table_text)
-	projecthousing = get_node("MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing")
-	print(projecthousing.visible)
-	gridsystem = projecthousing.get_parent()
-	print(gridsystem.get_child_count())
+	if table_text != null:
+		projecthousing = get_node("MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing")
+		gridsystem = projecthousing.get_parent()
+#Clicar um clone do Housing que esta Invisivel adicionar os dados, adicionar o id no tooltip
+		for i in table_text.size():
+			var clone = projecthousing.duplicate()
+			clone.visible = true
+			clone.tooltip_text = str(table_text[i]["id"])
+			gridsystem.add_child(clone)
+			var projectinfo = clone.get_node("ProjectInfo").get_children()
+			print(projectinfo)
+			projectinfo[0].text = table_text[i]["name"]
+			projectinfo[1].text = table_text[i]["path"]
 	
-	var clone = projecthousing.duplicate()
-	clone.visible = true
-	gridsystem.add_child(clone)
-	var projectinfo = clone.get_node("ProjectInfo").get_children()
-	print(projectinfo)
-	projectinfo[0].text = table_text[0]["name"]
-	projectinfo[1].text = table_text[0]["path"]
-	
-	#HIDE ID OF THE HOUSING ON ITS TOOLTIP ITS SO GENIOUS
+
 
 
 
@@ -33,4 +34,4 @@ func _process(delta: float) -> void:
 
 
 func _on_btn_new_button_down() -> void:
-	print(database.query("SELECT * FROM Accounts"))
+	$MarginContainer/Content/HeaderPanel/Window.visible = true

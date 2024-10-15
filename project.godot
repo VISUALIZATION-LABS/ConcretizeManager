@@ -12,12 +12,18 @@ config_version=5
 
 config/name="PvizManager"
 run/main_scene="res://main_window.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="ConcretizeProjects"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 AutoLoad="*res://Scripts/AutoLoad.gd"
+
+[display]
+
+window/subwindows/embed_subwindows=false
 
 [dotnet]
 
