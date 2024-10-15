@@ -14,17 +14,18 @@ func _ready() -> void:
 		projecthousing = get_node("MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing")
 		gridsystem = projecthousing.get_parent()
 #Clicar um clone do Housing que esta Invisivel adicionar os dados, adicionar o id no tooltip
-		for i in table_text.size():
-			var clone = projecthousing.duplicate()
-			clone.visible = true
-			clone.tooltip_text = str(table_text[i]["id"])
-			gridsystem.add_child(clone)
-			var projectinfo = clone.get_node("ProjectInfo").get_children()
-			print(projectinfo)
-			projectinfo[0].text = table_text[i]["name"]
-			projectinfo[1].text = table_text[i]["path"]
+		create_new_housing(projecthousing)
 	
-
+func create_new_housing(node) -> void:
+	for i in table_text.size():
+		var clone = node.duplicate()
+		clone.visible = true
+		clone.tooltip_text = str(table_text[i]["id"])
+		gridsystem.add_child(clone)
+		var projectinfo = clone.get_node("ProjectInfo").get_children()
+		print(projectinfo)
+		projectinfo[0].text = table_text[i]["name"]
+		projectinfo[1].text = table_text[i]["path"]
 
 
 
@@ -34,4 +35,4 @@ func _process(delta: float) -> void:
 
 
 func _on_btn_new_button_down() -> void:
-	$MarginContainer/Content/HeaderPanel/Window.visible = true
+	$MarginContainer/Content/HeaderPanel/NewprojectPopup.visible = true

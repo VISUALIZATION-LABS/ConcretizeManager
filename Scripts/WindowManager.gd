@@ -24,7 +24,14 @@ func getControl(node:Control) -> Array:
 		return children
 
 #TODO: REFACTOR
-
+func _on_btn_projetos_button_down() -> void:
+	var nodes:Array = getControl($Windows)
+	nodes[0].visible = true
+	
+	for i in nodes.size():
+		if i != 0:
+			nodes[i].visible = false
+			
 func _on_btn_install_button_down() -> void:
 	var nodes:Array = getControl($Windows)
 	nodes[1].visible = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://ouyh71iw5w5o"]
+[gd_scene load_steps=38 format=3 uid="uid://ouyh71iw5w5o"]
 
 [ext_resource type="Script" path="res://Scripts/WindowManager.gd" id="1_3eng3"]
 [ext_resource type="FontFile" uid="uid://7w3wryjj81mc" path="res://Art/Fonts/Inter/Inter-SemiBold.ttf" id="1_3rg3l"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://bh60aw5he7uh8" path="res://newprojectpopup.tscn" id="6_erf75"]
 [ext_resource type="Script" path="res://Scripts/toggleAcrylicExample.gd" id="6_ji07w"]
 [ext_resource type="Script" path="res://Scripts/blurslider.gd" id="7_4fclj"]
-[ext_resource type="Script" path="res://Scripts/PopupWindow.gd" id="7_dpoyf"]
 [ext_resource type="Script" path="res://Scripts/SqlController.gd" id="8_ektlb"]
 [ext_resource type="Theme" uid="uid://dmtkb58tn0mco" path="res://PVIZ2UI.tres" id="11_56fxm"]
 [ext_resource type="Texture2D" uid="uid://brwipusnfb5qx" path="res://vuesax/bulk/boxInverted.png" id="12_1hj4n"]
@@ -296,9 +295,8 @@ text = "Novo"
 position = Vector2(32, 24)
 texture = ExtResource("4_dhdmp")
 
-[node name="Window" parent="Windows/wndProjetos/MarginContainer/Content/HeaderPanel" instance=ExtResource("6_erf75")]
+[node name="NewprojectPopup" parent="Windows/wndProjetos/MarginContainer/Content/HeaderPanel" instance=ExtResource("6_erf75")]
 visible = false
-script = ExtResource("7_dpoyf")
 
 [node name="wndInstalação" type="Control" parent="Windows"]
 visible = false
@@ -1271,7 +1269,7 @@ flat = true
 [connection signal="item_selected" from="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/TypeSelector" to="Windows/wndAdmin" method="_on_type_selector_item_selected"]
 [connection signal="button_down" from="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/AddAccountButton" to="Windows/wndAdmin" method="_on_add_account_button_button_down"]
 [connection signal="button_down" from="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control/DeletionButton" to="Windows/wndAdmin" method="_on_deletion_button_button_down"]
-[connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnProjetos" to="." method="_on_btn_install_button_down"]
+[connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnProjetos" to="." method="_on_btn_projetos_button_down"]
 [connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnInstall" to="." method="_on_btn_install_button_down"]
 [connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnPacotes" to="." method="_on_btn_pacotes_button_down"]
 [connection signal="button_down" from="Header/MarginContainer/Content/HBoxContainer/btnConta" to="." method="_on_btn_conta_button_down"]
