@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://ouyh71iw5w5o"]
+[gd_scene load_steps=39 format=3 uid="uid://ouyh71iw5w5o"]
 
 [ext_resource type="Script" path="res://Scripts/WindowManager.gd" id="1_3eng3"]
 [ext_resource type="FontFile" uid="uid://7w3wryjj81mc" path="res://Art/Fonts/Inter/Inter-SemiBold.ttf" id="1_3rg3l"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://dhiv3473q5bwi" path="res://Art/Fonts/Inter/Inter-Bold.ttf" id="2_j5lki"]
 [ext_resource type="FontFile" uid="uid://cx66tncyfdt0g" path="res://Art/Fonts/Inter/Inter-Regular.ttf" id="3_3r5xi"]
 [ext_resource type="Texture2D" uid="uid://cjeb175kpbx4" path="res://vuesax/bulk/box-addInverted.png" id="4_dhdmp"]
+[ext_resource type="Script" path="res://project_btn_handler.gd" id="4_esbrp"]
 [ext_resource type="FontFile" uid="uid://cjp63h0jocdhr" path="res://Art/Fonts/Inter/Inter-Medium.ttf" id="4_ih4kp"]
 [ext_resource type="Texture2D" uid="uid://4dni6ru1l86v" path="res://logoColorThick.png" id="4_k4ilk"]
 [ext_resource type="Shader" path="res://acrylic.gdshader" id="4_lu04a"]
@@ -214,6 +215,7 @@ layout_mode = 0
 offset_right = 384.0
 offset_bottom = 56.0
 flat = true
+script = ExtResource("4_esbrp")
 
 [node name="Controls" type="Control" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing"]
 anchors_preset = 0
@@ -1261,6 +1263,7 @@ theme_type_variation = &"LoginButton"
 text = "Login Temporario"
 flat = true
 
+[connection signal="button_down" from="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing/ProjectBtn" to="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing/ProjectBtn" method="_on_button_down"]
 [connection signal="button_down" from="Windows/wndProjetos/MarginContainer/Content/HeaderPanel/btnNew" to="Windows/wndProjetos" method="_on_btn_new_button_down"]
 [connection signal="button_down" from="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing1/PackageContainer/PackageButton" to="Windows/wndPacotes/MarginContainer/Content/PainelContainer" method="_on_package_button_button_down"]
 [connection signal="button_down" from="Windows/wndConta/MarginContainer/Content/DownloadPanel/toggleAcrylic" to="Windows/wndConta/MarginContainer/Content/DownloadPanel/toggleAcrylic" method="_on_button_down"]

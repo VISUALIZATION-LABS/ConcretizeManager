@@ -48,7 +48,7 @@ offset_bottom = 122.0
 icon = ExtResource("2_tatsr")
 
 [node name="FileDialog" type="FileDialog" parent="."]
-title = "Escolha o Local"
+title = "Open a Directory"
 initial_position = 4
 size = Vector2i(600, 400)
 ok_button_text = "Select Current Folder"

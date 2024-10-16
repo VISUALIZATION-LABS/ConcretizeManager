@@ -28,8 +28,11 @@ func _on_criar_button_button_down() -> void:
 			"name": $ProjectName.text,
 			"path": $ProjectPath.text
 		}
+		#LINE THAT SENDS THE PROJECT TO THE DATA BASE
 		database.insert_row("ProjectInfo", data)
+		AutoLoad.RefreshHousing.emit()
 		close_window()
+		
 	else:
 		print("else")
 		$error.play()
