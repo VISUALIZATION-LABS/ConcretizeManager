@@ -11,6 +11,7 @@ func _ready() -> void:
 #Clicar um clone do Housing que esta Invisivel adicionar os dados, adicionar o id no tooltip
 		refresh_housings()
 	AutoLoad.RefreshHousing.connect(refresh_housings)
+	AutoLoad.ProjectClicked.connect(project_clicked)
 
 #cant make it explicitaly return void because it breaks the signal
 func refresh_housings() -> void:
@@ -34,11 +35,18 @@ func refresh_housings() -> void:
 		projectinfo[1].text = table_text[i]["path"]
 
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+func project_clicked(id):
+	print(id)
+	#probably would look something like acessesing the user data custom thing
+	#and then finding whatever file we end up using for scenes
+	#and then pass it as an argument to concretize itself
+	#for now just gonna open concretize
+	print(OS.get_data_dir())
+	
+	var concretizelocal = OS.get_data_dir() + "/Concretize/Installs/Concretize" + "/Concretize-a1.0.exe"
+	print(concretizelocal)
+	OS.execute_with_pipe(concretizelocal, ["-f"])
+	get_tree().quit()
 
 func _on_btn_new_button_down() -> void:
 	$MarginContainer/Content/HeaderPanel/NewprojectPopup.visible = true
