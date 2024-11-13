@@ -73,7 +73,6 @@ func _on_package_button_button_down():
 "
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b0tes"]
-load_path = "res://.godot/imported/logoColorThick.png-1b5baa22914a87f7e569a693ef62eb68.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fefef"]
 shader = ExtResource("4_lu04a")

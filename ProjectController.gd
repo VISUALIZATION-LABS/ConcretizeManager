@@ -43,7 +43,7 @@ func project_clicked(id):
 	#for now just gonna open concretize
 	print(OS.get_data_dir())
 	
-	var concretizelocal = OS.get_data_dir() + "/Concretize/Installs/Concretize" + "/Concretize-a1.0.exe"
+	var concretizelocal = OS.get_data_dir() + "/Concretize/Installs/Concretize" + "/Concretize-a1.1.exe"
 	print(concretizelocal)
 	OS.execute_with_pipe(concretizelocal, ["-f"])
 	get_tree().quit()
