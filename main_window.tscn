@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://ouyh71iw5w5o"]
+[gd_scene load_steps=40 format=3 uid="uid://ouyh71iw5w5o"]
 
 [ext_resource type="Script" path="res://Scripts/WindowManager.gd" id="1_3eng3"]
 [ext_resource type="FontFile" uid="uid://7w3wryjj81mc" path="res://Art/Fonts/Inter/Inter-SemiBold.ttf" id="1_3rg3l"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cjeb175kpbx4" path="res://vuesax/bulk/box-addInverted.png" id="4_dhdmp"]
 [ext_resource type="Script" path="res://project_btn_handler.gd" id="4_esbrp"]
 [ext_resource type="FontFile" uid="uid://cjp63h0jocdhr" path="res://Art/Fonts/Inter/Inter-Medium.ttf" id="4_ih4kp"]
-[ext_resource type="Texture2D" uid="uid://4dni6ru1l86v" path="res://logoColorThick.png" id="4_k4ilk"]
 [ext_resource type="Shader" path="res://acrylic.gdshader" id="4_lu04a"]
 [ext_resource type="Texture2D" uid="uid://c15ig52jksbak" path="res://vuesax/bulk/box-searchInverted.png" id="4_vdwpe"]
 [ext_resource type="PackedScene" uid="uid://bh60aw5he7uh8" path="res://newprojectpopup.tscn" id="6_erf75"]
@@ -25,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://2tvibu4dpfjs" path="res://vuesax/bulk/user-octagonInverted.png" id="15_jrsj7"]
 [ext_resource type="Texture2D" uid="uid://d38djksf7y0s" path="res://vuesax/bulk/profile-2userInverted.png" id="16_t4w5h"]
 [ext_resource type="Texture2D" uid="uid://cays2wob6q2ph" path="res://vuesax/bulk/close-squareInverted.png" id="17_y7rt3"]
+[ext_resource type="Texture2D" uid="uid://nxvf154qaq0m" path="res://logo-viz-labs-light.png" id="24_cmtqa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxbg2"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -71,6 +71,9 @@ func _process(delta):
 func _on_package_button_button_down():
 	pass # Replace with function body.
 "
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b0tes"]
+load_path = "res://.godot/imported/logoColorThick.png-1b5baa22914a87f7e569a693ef62eb68.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fefef"]
 shader = ExtResource("4_lu04a")
@@ -701,7 +704,7 @@ grow_horizontal = 0
 [node name="LogoColorThick" type="Sprite2D" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel/Control"]
 position = Vector2(556, 281)
 scale = Vector2(0.17193, 0.17193)
-texture = ExtResource("4_k4ilk")
+texture = SubResource("CompressedTexture2D_b0tes")
 
 [node name="AcrylicBlurPanel" type="Panel" parent="Windows/wndConta/MarginContainer/Content/DownloadPanel"]
 material = SubResource("ShaderMaterial_fefef")
@@ -1176,9 +1179,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="LogoColorThick" type="Sprite2D" parent="LoginWindow/wndMain"]
-position = Vector2(568, 120)
-scale = Vector2(0.214912, 0.214912)
-texture = ExtResource("4_k4ilk")
+position = Vector2(576, 128)
+scale = Vector2(0.15777, 0.15777)
+texture = ExtResource("24_cmtqa")
 
 [node name="LoginText" type="Label" parent="LoginWindow/wndMain"]
 layout_mode = 0
