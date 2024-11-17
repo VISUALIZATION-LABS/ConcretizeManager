@@ -23,7 +23,7 @@ func refresh_housings() -> void:
 	var gridchild = gridsystem.get_children()
 	for n in gridchild.size():
 		if gridchild[n].name != "ProjectHousing":
-			gridchild[n].free()
+			gridchild[n].queue_free()
 	for i in table_text.size():
 		var clone = projecthousing.duplicate()
 		clone.visible = true

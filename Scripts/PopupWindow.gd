@@ -5,10 +5,9 @@ var database: SQLite
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 #Coloca o folder de abrir como o escolhido por eu e felipe
-	$FileDialog.root_subfolder = OS.get_user_data_dir()
-	$ProjectPath.text = OS.get_user_data_dir()
+	$FileDialog.root_subfolder = AutoLoad.projectdir
+	$ProjectPath.text = AutoLoad.projectdir
 	database = AutoLoad.database
-
 
 
 func close_window():
@@ -32,6 +31,7 @@ func _on_criar_button_button_down() -> void:
 		database.insert_row("ProjectInfo", data)
 		AutoLoad.RefreshHousing.emit()
 		close_window()
+		AutoLoad.dir.make_dir($ProjectName.text)
 		
 	else:
 		print("else")
