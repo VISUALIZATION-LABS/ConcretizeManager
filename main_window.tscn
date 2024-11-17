@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://ouyh71iw5w5o"]
+[gd_scene load_steps=41 format=3 uid="uid://ouyh71iw5w5o"]
 
 [ext_resource type="Script" path="res://Scripts/WindowManager.gd" id="1_3eng3"]
 [ext_resource type="FontFile" uid="uid://7w3wryjj81mc" path="res://Art/Fonts/Inter/Inter-SemiBold.ttf" id="1_3rg3l"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://cjp63h0jocdhr" path="res://Art/Fonts/Inter/Inter-Medium.ttf" id="4_ih4kp"]
 [ext_resource type="Shader" path="res://acrylic.gdshader" id="4_lu04a"]
 [ext_resource type="Texture2D" uid="uid://c15ig52jksbak" path="res://vuesax/bulk/box-searchInverted.png" id="4_vdwpe"]
+[ext_resource type="Script" path="res://DropdownMenu.gd" id="5_pi7i0"]
 [ext_resource type="PackedScene" uid="uid://bh60aw5he7uh8" path="res://newprojectpopup.tscn" id="6_erf75"]
 [ext_resource type="Script" path="res://Scripts/toggleAcrylicExample.gd" id="6_ji07w"]
 [ext_resource type="Script" path="res://Scripts/blurslider.gd" id="7_4fclj"]
@@ -188,7 +189,7 @@ theme = ExtResource("11_56fxm")
 theme_override_colors/font_outline_color = Color(0.505882, 0.505882, 0.505882, 1)
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/normal_font_size = 16
-text = "Meu Projeto 3D"
+text = "YOU SHOULDNT BE SEEING THIS"
 scroll_active = false
 shortcut_keys_enabled = false
 
@@ -207,7 +208,7 @@ theme_override_colors/default_color = Color(0.505882, 0.505882, 0.505882, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/normal_font_size = 14
-text = "/CAFA/Concretize/MeuPrimeiroProjeto"
+text = "FILE PATH"
 scroll_active = false
 autowrap_mode = 0
 shortcut_keys_enabled = false
@@ -224,6 +225,22 @@ anchors_preset = 0
 offset_left = 384.0
 offset_right = 896.0
 offset_bottom = 64.0
+
+[node name="DropdownMenu" type="MenuButton" parent="Windows/wndProjetos/MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing/Controls"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.75
+anchor_right = -0.75
+offset_left = 776.0
+offset_top = 16.0
+offset_right = 808.0
+offset_bottom = 47.0
+text = ". . ."
+item_count = 2
+popup/item_0/text = "Editar"
+popup/item_1/text = "Deletar"
+popup/item_1/id = 1
+script = ExtResource("5_pi7i0")
 
 [node name="HeaderPanel" type="Panel" parent="Windows/wndProjetos/MarginContainer/Content"]
 layout_mode = 0
@@ -631,17 +648,7 @@ anchor_left = -0.00325733
 anchor_top = 0.0494297
 anchor_right = 1.00977
 anchor_bottom = 0.642586
-text = "No estágio eu realizei diversas montagens e preparações de computadores para clientes do
-Governo e de empresas privadas. As montagens realizadas abrangem diversos tipos de máqui-
-nas, como computadores desktop, laptops e computadores all-in-one. Dentro dessas ordens de
-montagem foram realizadas trocas de componentes internos (no caso de laptops e all-in-ones)
-como SSDs e NVMEs, e a configuração do sistema operacional Microsoft Windows 10/11 com a
-suite completa do Microsoft 365.
-Além disso, o meu trabalho envolveu a manutenção de máquinas de usuários finais trazidas
-para o meu local de trabalho. Essas ordens de serviço envolveram debugging para encontrar e
-resolver problemas nas máquinas e também a limpagem completa dos computadores.
-Por fim, também realizei a contagem de itens em estoque e o lançamento de notas fiscais na
-base de dados da empresa para a documentação legal de gastos e ganhos monetários."
+text = "Aqui havera informações sobre o pacote, incluindo modelos que vem nele, ultima vez atualizado e autores diretios autorais e etc."
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/NewsPanel"]
@@ -1165,6 +1172,7 @@ text = "  CONCRETIZE
 fit_content = true
 
 [node name="LoginWindow" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchor_right = 1.0
 anchor_bottom = 0.994
