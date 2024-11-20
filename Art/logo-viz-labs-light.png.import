@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4dni6ru1l86v"
-path="res://.godot/imported/logoColorThick.png-1b5baa22914a87f7e569a693ef62eb68.ctex"
+uid="uid://nxvf154qaq0m"
+path="res://.godot/imported/logo-viz-labs-light.png-f5f05e83fc4f489c0a958f355bc34536.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://logoColorThick.png"
-dest_files=["res://.godot/imported/logoColorThick.png-1b5baa22914a87f7e569a693ef62eb68.ctex"]
+source_file="res://Art/logo-viz-labs-light.png"
+dest_files=["res://.godot/imported/logo-viz-labs-light.png-f5f05e83fc4f489c0a958f355bc34536.ctex"]
 
 [params]
 

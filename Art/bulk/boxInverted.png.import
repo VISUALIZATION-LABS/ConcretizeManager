@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4clcb547eth0"
-path="res://.godot/imported/check-mark.svg-1e475ed914cd12ba26be1613359f44cb.ctex"
+uid="uid://brwipusnfb5qx"
+path="res://.godot/imported/boxInverted.png-9097eac8895242a6f04edcad6f89d460.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://check-mark.svg"
-dest_files=["res://.godot/imported/check-mark.svg-1e475ed914cd12ba26be1613359f44cb.ctex"]
+source_file="res://Art/bulk/boxInverted.png"
+dest_files=["res://.godot/imported/boxInverted.png-9097eac8895242a6f04edcad6f89d460.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
