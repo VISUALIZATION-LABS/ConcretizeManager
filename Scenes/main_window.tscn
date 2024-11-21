@@ -921,7 +921,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Adicionar nova Conta"
 
-[node name="UniEmailBox" type="TextEdit" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control"]
+[node name="UniEmailBox" type="LineEdit" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control"]
 layout_mode = 2
 anchor_left = 0.492
 anchor_top = 0.154
@@ -934,7 +934,7 @@ offset_bottom = 72.052
 theme = ExtResource("11_56fxm")
 placeholder_text = "Email"
 
-[node name="UniUserBox" type="TextEdit" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control"]
+[node name="UniUserBox" type="LineEdit" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control"]
 layout_mode = 2
 anchor_left = 0.492
 anchor_top = 0.322
@@ -947,7 +947,7 @@ offset_bottom = 71.8519
 theme = ExtResource("11_56fxm")
 placeholder_text = "Username"
 
-[node name="UniPassBox" type="TextEdit" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control"]
+[node name="UniPassBox" type="LineEdit" parent="Windows/wndAdmin/MarginContainer/Content/DownloadPanel/Control"]
 layout_mode = 2
 anchor_left = 0.492
 anchor_top = 0.474
@@ -1044,6 +1044,7 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 256.0
 grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
@@ -1221,7 +1222,7 @@ theme_type_variation = &"HeaderLarge"
 theme_override_font_sizes/font_size = 50
 text = "Login"
 
-[node name="UsernameBox" type="TextEdit" parent="LoginWindow/wndMain"]
+[node name="UsernameBox" type="LineEdit" parent="LoginWindow/wndMain"]
 layout_mode = 0
 offset_left = 344.0
 offset_top = 272.0
@@ -1229,13 +1230,14 @@ offset_right = 792.0
 offset_bottom = 320.0
 placeholder_text = "Nome de Usuario ou Email"
 
-[node name="PasswordBox" type="TextEdit" parent="LoginWindow/wndMain"]
+[node name="PasswordBox" type="LineEdit" parent="LoginWindow/wndMain"]
 layout_mode = 0
 offset_left = 344.0
 offset_top = 344.0
 offset_right = 792.0
 offset_bottom = 392.0
 placeholder_text = "Senha"
+secret = true
 
 [node name="LoginButton" type="Button" parent="LoginWindow/wndMain"]
 layout_mode = 0
