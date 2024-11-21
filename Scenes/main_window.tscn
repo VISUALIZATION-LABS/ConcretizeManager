@@ -58,11 +58,25 @@ corner_radius_bottom_left = 20
 script/source = "extends Node
 var database: SQLite
 var table_text: Array
+var dir: DirAccess
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	database = AutoLoad.database
+	dir = AutoLoad.packagedir
 	#table_text = database.select_rows(\"ProjectInfo\", \"id NOT NULL\", [\"*\"])
-	print(AutoLoad.dir)
+	print(AutoLoad.dir.get_current_dir())
+	if dir:
+			dir.list_dir_begin()
+			var file_name = dir.get_next()
+			while file_name != \"\":
+				if dir.current_is_dir():
+					print(\"Found Package: \" + file_name)
+					print(file_name)
+					
+				file_name = dir.get_next()
+	else:
+		print(\"An error occurred when trying to access the path.\")
+	
 
 
 func _on_package_button_button_down():

@@ -19,7 +19,7 @@ func refresh_housings() -> void:
 	#print(table_text)
 	var projecthousing = get_node("MarginContainer/Content/ProjectsPanel/VBoxContainer/ProjectHousing")
 	var gridsystem = projecthousing.get_parent()
-	print(gridsystem.get_children())
+	#print(gridsystem.get_children())
 	var gridchild = gridsystem.get_children()
 	for n in gridchild.size():
 		if gridchild[n].name != "ProjectHousing":
@@ -34,17 +34,9 @@ func refresh_housings() -> void:
 		projectinfo[0].text = table_text[i]["name"]
 		projectinfo[1].text = table_text[i]["path"]
 
-
+#Opens the Installed Concretize it isn't reactive yet but it works
 func project_clicked(id):
-	print(id)
-	#probably would look something like acessesing the user data custom thing
-	#and then finding whatever file we end up using for scenes
-	#and then pass it as an argument to concretize itself
-	#for now just gonna open concretize
-	print(OS.get_data_dir())
-	
 	var concretizelocal = OS.get_data_dir() + "/Concretize/Installs/Concretize" + "/Concretize-a1.1.exe"
-	print(concretizelocal)
 	OS.execute_with_pipe(concretizelocal, ["-f"])
 	get_tree().quit()
 

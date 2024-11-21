@@ -11,7 +11,6 @@ func menupress(id) -> void:
 	var ProjectHousing = self.get_parent().get_parent()
 	var ProjectId = ProjectHousing.tooltip_text
 	var ProjectName = ProjectHousing.get_child(0).get_child(0).text
-	#print(id)
 	var dir = AutoLoad.projectdir
 	if id == 0:
 		print("edit")
@@ -21,11 +20,12 @@ func menupress(id) -> void:
 		print(AutoLoad.projectdir.get_current_dir())
 		print(ProjectName)
 	else:
-		print("delete")
-		print(ProjectId)
+		
+		print("Project id: " + ProjectId)
 		database.delete_rows("ProjectInfo", "id = '" + ProjectId + "'")
 		AutoLoad.RefreshHousing.emit()
 		#Getting all the folders on OS.get_user_data_dir()
+		#AutoLoad.read_directories(AutoLoad.projectdir)
 		if dir:
 			dir.list_dir_begin()
 			var file_name = dir.get_next()
@@ -34,7 +34,10 @@ func menupress(id) -> void:
 					print("Found directory: " + file_name)
 					print(file_name)
 					if file_name == ProjectName:
-						OS.move_to_trash(AutoLoad.projectdir.get_current_dir() + "/" + file_name)
+						if OS.move_to_trash(AutoLoad.projectdir.get_current_dir() + "/" + file_name) == 0:
+							print("Delete Success")
+						else:
+							print("Not deleted")
 				file_name = dir.get_next()
 		else:
 			print("An error occurred when trying to access the path.")
