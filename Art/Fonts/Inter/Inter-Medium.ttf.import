@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/Inter-Medium.ttf-3989e2b934f4ef96e1a7944c86d2
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
+disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48
