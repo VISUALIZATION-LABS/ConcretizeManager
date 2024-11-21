@@ -20,6 +20,11 @@ func _ready() -> void:
 	else:
 		print("Making Directory Projects")
 		dir.make_dir("Projects")
+	if directories.find("Installs") != -1:
+		print("Found Directory Installs")
+	else:
+		print("Making Directory Installs")
+		dir.make_dir("Installs")
 	if directories.find("Packages") != -1:
 		print("Found Directory Packages")
 	else:
