@@ -8,8 +8,8 @@ var password: String
 
 func _ready() -> void:
 #  WARNING Hides Everything else so only the LoginWindow Appears
-	#$Windows.hide()
-	#$Header.hide()
+	$Windows.hide()
+	$Header.hide()
 	# Get all the Accounts from the database
 	text = $Windows/wndAdmin._read_table("type")
 	#Set All Accounts as Options on the AccountSelector

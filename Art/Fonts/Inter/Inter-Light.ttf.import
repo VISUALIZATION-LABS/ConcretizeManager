@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/Inter-Light.ttf-c614d704f9036cc916115892c6ffc
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
+disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48
