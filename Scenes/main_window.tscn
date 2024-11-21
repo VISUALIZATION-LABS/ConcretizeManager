@@ -72,7 +72,7 @@ func _ready():
 				if dir.current_is_dir():
 					print(\"Found Package: \" + file_name)
 					print(file_name)
-					
+					#Then probably send it to refresh housing and stuff bleh
 				file_name = dir.get_next()
 	else:
 		print(\"An error occurred when trying to access the path.\")
