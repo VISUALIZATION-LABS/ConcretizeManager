@@ -65,18 +65,18 @@ func _ready():
 	dir = AutoLoad.packagedir
 	#table_text = database.select_rows(\"ProjectInfo\", \"id NOT NULL\", [\"*\"])
 	print(AutoLoad.dir.get_current_dir())
-	if dir:
-			dir.list_dir_begin()
-			var file_name = dir.get_next()
-			while file_name != \"\":
-				if dir.current_is_dir():
-					print(\"Found Package: \" + file_name)
-					print(file_name)
-					#Then probably send it to refresh housing and stuff bleh
-				file_name = dir.get_next()
-	else:
-		print(\"An error occurred when trying to access the path.\")
-	
+#	if dir:
+#			dir.list_dir_begin()
+#			var file_name = dir.get_next()
+#			while file_name != \"\":
+#				if dir.current_is_dir():
+#					print(\"Found Package: \" + file_name)
+#					print(file_name)
+#					#Then probably send it to refresh housing and stuff bleh
+#				file_name = dir.get_next()
+#	else:
+#		print(\"An error occurred when trying to access the path.\")
+#	
 
 
 func _on_package_button_button_down():
@@ -629,7 +629,7 @@ offset_bottom = 20.0
 theme_override_fonts/normal_font = ExtResource("3_3r5xi")
 theme_override_fonts/bold_font = ExtResource("4_ih4kp")
 bbcode_enabled = true
-text = "[b] Mobília essencial"
+text = "[b]Mobília essencial"
 fit_content = true
 
 [node name="PackageSubText" type="RichTextLabel" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2/PackageContainer/PackageInfo"]

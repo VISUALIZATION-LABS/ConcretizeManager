@@ -16,25 +16,25 @@ func _ready() -> void:
 	#Be Certain that the Directories exist
 	print(directories)
 	if directories.find("Projects") != -1:
-		print("Found Directory Projects")
+		print("Found Projects")
 	else:
 		print("Making Directory Projects")
-		dir.make_dir("Projects")
+		dir.make_dir(OS.get_user_data_dir() + "/Projects")
 	if directories.find("Installs") != -1:
-		print("Found Directory Installs")
+		print("Found Installs")
 	else:
 		print("Making Directory Installs")
-		dir.make_dir("Installs")
+		dir.make_dir(OS.get_user_data_dir() + "/Installs")
 	if directories.find("Packages") != -1:
-		print("Found Directory Packages")
+		print("Found Packages")
 	else:
 		print("Making Directory Packages")
-		dir.make_dir("Projects")
+		dir.make_dir(OS.get_user_data_dir() + "/Packages")
 	if directories.find("Documentation") != -1:
-		print("Found Directory Documentation")
+		print("Found Documentation")
 	else:
 		print("Making Directory Documentation")
-		dir.make_dir("Documentation")
+		dir.make_dir(OS.get_user_data_dir() + "/Documentation")
 	#Opening access to them after we are sure that they exist
 	projectdir = DirAccess.open(OS.get_user_data_dir() + "/Projects")
 	packagedir = DirAccess.open(OS.get_user_data_dir() + "/Packages")
