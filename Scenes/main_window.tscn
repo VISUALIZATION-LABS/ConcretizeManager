@@ -56,11 +56,13 @@ corner_radius_bottom_left = 20
 
 [sub_resource type="GDScript" id="GDScript_jo70y"]
 script/source = "extends Node
-
-
+var database: SQLite
+var table_text: Array
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	database = AutoLoad.database
+	#table_text = database.select_rows(\"ProjectInfo\", \"id NOT NULL\", [\"*\"])
+	print(AutoLoad.dir)
 
 
 func _on_package_button_button_down():
@@ -117,6 +119,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="wndProjetos" type="Control" parent="Windows"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -465,7 +468,6 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vv41q")
 
 [node name="wndPacotes" type="Control" parent="Windows"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -491,7 +493,7 @@ layout_mode = 2
 [node name="PainelContainer" type="HSplitContainer" parent="Windows/wndPacotes/MarginContainer/Content"]
 clip_contents = true
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 4.0
@@ -510,14 +512,14 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_vv41q")
 [node name="MarginContainer" type="MarginContainer" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0666667
-anchor_top = 0.0738916
-anchor_right = 2.73333
-anchor_bottom = 1.05911
-offset_left = 20.0
-offset_top = -45.0
-offset_right = 40.0
-offset_bottom = -36.0
+anchor_left = -0.067
+anchor_top = -0.033
+anchor_right = 2.92
+anchor_bottom = 1.031
+offset_left = 20.1
+offset_top = 20.097
+offset_right = -16.001
+offset_bottom = -18.881
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
@@ -531,9 +533,9 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+offset_right = 819.0
+offset_bottom = 568.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
@@ -566,7 +568,7 @@ offset_bottom = 20.0
 theme_override_fonts/normal_font = ExtResource("3_3r5xi")
 theme_override_fonts/bold_font = ExtResource("4_ih4kp")
 bbcode_enabled = true
-text = "[b]MODERN HOUSE PACK"
+text = "[b]Sala de Aula"
 fit_content = true
 
 [node name="PackageSubText" type="RichTextLabel" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing1/PackageContainer/PackageInfo"]
@@ -577,8 +579,8 @@ offset_bottom = 60.0
 theme_override_fonts/normal_font = ExtResource("3_3r5xi")
 theme_override_fonts/bold_font = ExtResource("4_ih4kp")
 bbcode_enabled = true
-text = "V1.0.0 | 300GB
-21/09/2024"
+text = "V1.0.0 | 73.3 MB
+21/11/2024"
 fit_content = true
 
 [node name="PackageButton" type="Button" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing1/PackageContainer"]
@@ -613,7 +615,7 @@ offset_bottom = 20.0
 theme_override_fonts/normal_font = ExtResource("3_3r5xi")
 theme_override_fonts/bold_font = ExtResource("4_ih4kp")
 bbcode_enabled = true
-text = "[b]MADAGA GROUP"
+text = "[b] Mobília essencial"
 fit_content = true
 
 [node name="PackageSubText" type="RichTextLabel" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/DownloadPanel/MarginContainer/Control/VBoxContainer/DownloadHousing2/PackageContainer/PackageInfo"]
@@ -624,8 +626,8 @@ offset_bottom = 60.0
 theme_override_fonts/normal_font = ExtResource("3_3r5xi")
 theme_override_fonts/bold_font = ExtResource("4_ih4kp")
 bbcode_enabled = true
-text = "V1.0.0 | 300TB
-21/09/2024"
+text = "V1.0.0 | 200 MB
+21/11/2024"
 fit_content = true
 
 [node name="NewsPanel" type="Panel" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer"]
@@ -639,7 +641,8 @@ anchor_left = -0.00325733
 anchor_top = 0.0494297
 anchor_right = 1.00977
 anchor_bottom = 0.642586
-text = "Aqui havera informações sobre o pacote, incluindo modelos que vem nele, ultima vez atualizado e autores diretios autorais e etc."
+text = "Autor: VisualizationLabs
+Desc: Alguns modelos para o planejamento de salas de aula simples"
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="Windows/wndPacotes/MarginContainer/Content/PainelContainer/NewsPanel"]
@@ -1030,8 +1033,8 @@ text = "Tipo de Conta"
 
 [node name="Header" type="Control" parent="."]
 layout_mode = 1
-anchor_right = 0.222222
 anchor_bottom = 1.0
+offset_right = 256.0
 grow_horizontal = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
@@ -1047,10 +1050,9 @@ color = Color(0.0705882, 0.0705882, 0.0705882, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="Header"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-grow_horizontal = 2
+offset_right = 256.0
 grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 30
@@ -1064,13 +1066,15 @@ mouse_filter = 1
 
 [node name="HBoxContainer" type="VBoxContainer" parent="Header/MarginContainer/Content"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = 158.0
-offset_right = -2.0
-offset_bottom = -118.0
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.5
+offset_top = -156.0
+offset_right = 95.5
+offset_bottom = 196.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -1181,6 +1185,7 @@ text = "  CONCRETIZE
 fit_content = true
 
 [node name="LoginWindow" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchor_right = 1.0
 anchor_bottom = 0.994

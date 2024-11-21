@@ -1,7 +1,7 @@
 extends Node
 var database: SQLite
-var projectdir = OS.get_user_data_dir()
-var dir
+var projectdir: DirAccess
+var dir: DirAccess = DirAccess.open(OS.get_user_data_dir())
 
 
 signal ProjectClicked(id)
@@ -11,4 +11,4 @@ func _ready() -> void:
 	database = SQLite.new()
 	database.path="res://data.db"
 	database.open_db()
-	dir = DirAccess.open(projectdir)
+	projectdir = DirAccess.open(OS.get_user_data_dir() + "/Projects")
